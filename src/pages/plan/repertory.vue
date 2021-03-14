@@ -1,12 +1,12 @@
 <template>
   <div>
-    yearly
+    repertory
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Yearly'
+  name: 'Repertory'
 }
 </script>
 

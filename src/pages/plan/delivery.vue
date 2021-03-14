@@ -1,12 +1,12 @@
 <template>
   <div>
-    yearly
+    delivery
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Yearly'
+  name: 'Delivery'
 }
 </script>
 

@@ -28,7 +28,7 @@ const pageRouter = [{
     path: 'monthly-apply',
     component: () => import('@/pages/plan/monthly-apply'),
     name: 'Monthly-Apply',
-    meta: { title: 'OC 月度计划申请' }
+    meta: { title: '月度计划申请' }
   }, {
     path: 'monthly-delivery',
     component: () => import('@/pages/plan/monthly-delivery'),
@@ -56,27 +56,27 @@ const pageRouter = [{
   },
   children: [{
     path: 'yearly-view',
-    component: () => import('@/pages/report/yearly-view'),
+    component: () => import('@/pages/my/yearly-view'),
     name: 'Yearly-View',
     meta: { title: '年度计划申请查看' }
   }, {
     path: 'monthly-view',
-    component: () => import('@/pages/report/monthly-view'),
+    component: () => import('@/pages/my/monthly-view'),
     name: 'Monthly-View',
     meta: { title: '月度计划申请查看' }
   }, {
     path: 'delivery',
-    component: () => import('@/pages/report/delivery'),
+    component: () => import('@/pages/my/delivery'),
     name: 'delivery',
     meta: { title: '月度发货申请查看' }
   }, {
     path: 'yearly-audit',
-    component: () => import('@/pages/report/yearly-audit'),
+    component: () => import('@/pages/my/yearly-audit'),
     name: 'Yearly-Audit',
     meta: { title: '年度申请审核' }
   }, {
     path: 'monthly-audit',
-    component: () => import('@/pages/report/monthly-audit'),
+    component: () => import('@/pages/my/monthly-audit'),
     name: 'Monthly-Audit',
     meta: { title: '月度申请审核' }
   }]
