@@ -159,12 +159,6 @@ const asyncRoutes = [
     },
     children: [
       {
-        path: 'keyboard',
-        component: 'views/charts/keyboard',
-        name: 'KeyboardChart',
-        meta: { title: 'Keyboard Chart', noCache: true }
-      },
-      {
         path: 'line',
         component: 'views/charts/line',
         name: 'LineChart',
@@ -299,26 +293,6 @@ const asyncRoutes = [
       }
     ]
   },
-
-  {
-    path: '/pdf',
-    component: 'layout/Layout',
-    redirect: '/pdf/index',
-    children: [
-      {
-        path: 'index',
-        component: 'views/pdf/index',
-        name: 'PDF',
-        meta: { title: 'PDF', icon: 'pdf' }
-      }
-    ]
-  },
-  {
-    path: '/pdf/download',
-    component: 'views/pdf/download',
-    hidden: true
-  },
-
   {
     path: '/theme',
     component: 'layout/Layout',
@@ -359,18 +333,6 @@ const asyncRoutes = [
       }
     ]
   },
-
-  {
-    path: 'external-link',
-    component: 'layout/Layout',
-    children: [
-      {
-        path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
 
