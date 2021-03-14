@@ -100,20 +100,6 @@ const asyncRoutes = [
       }
     ]
   },
-
-  {
-    path: '/icon',
-    component: 'layout/Layout',
-    children: [
-      {
-        path: 'index',
-        component: 'views/icons/index',
-        name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon', noCache: true }
-      }
-    ]
-  },
-
   {
     path: '/components',
     component: 'layout/Layout',
@@ -124,30 +110,6 @@ const asyncRoutes = [
       icon: 'component'
     },
     children: [
-      {
-        path: 'tinymce',
-        component: 'views/components-demo/tinymce',
-        name: 'TinymceDemo',
-        meta: { title: 'Tinymce' }
-      },
-      {
-        path: 'markdown',
-        component: 'views/components-demo/markdown',
-        name: 'MarkdownDemo',
-        meta: { title: 'Markdown' }
-      },
-      {
-        path: 'json-editor',
-        component: 'views/components-demo/json-editor',
-        name: 'JsonEditorDemo',
-        meta: { title: 'Json Editor' }
-      },
-      {
-        path: 'split-pane',
-        component: 'views/components-demo/split-pane',
-        name: 'SplitpaneDemo',
-        meta: { title: 'SplitPane' }
-      },
       {
         path: 'avatar-upload',
         component: 'views/components-demo/avatar-upload',
@@ -167,12 +129,6 @@ const asyncRoutes = [
         meta: { title: 'Sticky' }
       },
       {
-        path: 'count-to',
-        component: 'views/components-demo/count-to',
-        name: 'CountToDemo',
-        meta: { title: 'Count To' }
-      },
-      {
         path: 'mixin',
         component: 'views/components-demo/mixin',
         name: 'ComponentMixinDemo',
@@ -189,24 +145,6 @@ const asyncRoutes = [
         component: 'views/components-demo/drag-dialog',
         name: 'DragDialogDemo',
         meta: { title: 'Drag Dialog' }
-      },
-      {
-        path: 'drag-select',
-        component: 'views/components-demo/drag-select',
-        name: 'DragSelectDemo',
-        meta: { title: 'Drag Select' }
-      },
-      {
-        path: 'dnd-list',
-        component: 'views/components-demo/dnd-list',
-        name: 'DndListDemo',
-        meta: { title: 'Dnd List' }
-      },
-      {
-        path: 'drag-kanban',
-        component: 'views/components-demo/drag-kanban',
-        name: 'DragKanbanDemo',
-        meta: { title: 'Drag Kanban' }
       }
     ]
   },
@@ -240,67 +178,6 @@ const asyncRoutes = [
       }
     ]
   },
-  {
-    path: '/nested',
-    component: 'layout/Layout',
-    redirect: '/nested/menu1/menu1-1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: 'views/nested/menu1/index',
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        redirect: '/nested/menu1/menu1-1',
-        children: [
-          {
-            path: 'menu1-1',
-            component: 'views/nested/menu1/menu1-1',
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: 'views/nested/menu1/menu1-2',
-            name: 'Menu1-2',
-            redirect: '/nested/menu1/menu1-2/menu1-2-1',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: 'views/nested/menu1/menu1-2/menu1-2-1',
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: 'views/nested/menu1/menu1-2/menu1-2-2',
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: 'views/nested/menu1/menu1-3',
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        name: 'Menu2',
-        component: 'views/nested/menu2/index',
-        meta: { title: 'Menu2' }
-      }
-    ]
-  },
-
   {
     path: '/example',
     component: 'layout/Layout',
@@ -370,21 +247,6 @@ const asyncRoutes = [
       }
     ]
   },
-
-  {
-    path: '/error-log',
-    component: 'layout/Layout',
-    redirect: 'noRedirect',
-    children: [
-      {
-        path: 'log',
-        component: 'views/error-log/index',
-        name: 'ErrorLog',
-        meta: { title: 'Error Log', icon: 'bug' }
-      }
-    ]
-  },
-
   {
     path: '/excel',
     component: 'layout/Layout',
