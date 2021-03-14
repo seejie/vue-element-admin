@@ -5,7 +5,7 @@ import Layout from '@/layout'
 const tableRouter = {
   path: '/table',
   component: Layout,
-  redirect: '/table/inline-edit-table',
+  redirect: '/inline-edit-table',
   name: 'Table',
   meta: {
     title: 'Table',

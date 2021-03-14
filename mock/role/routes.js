@@ -173,19 +173,6 @@ const asyncRoutes = [
     ]
   },
   {
-    path: '/tab',
-    component: 'layout/Layout',
-    children: [
-      {
-        path: 'index',
-        component: 'views/tab/index',
-        name: 'Tab',
-        meta: { title: 'Tab', icon: 'tab' }
-      }
-    ]
-  },
-
-  {
     path: '/error',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -271,33 +258,6 @@ const asyncRoutes = [
         component: 'views/theme/index',
         name: 'Theme',
         meta: { title: 'Theme', icon: 'theme' }
-      }
-    ]
-  },
-
-  {
-    path: '/clipboard',
-    component: 'layout/Layout',
-    redirect: 'noRedirect',
-    children: [
-      {
-        path: 'index',
-        component: 'views/clipboard/index',
-        name: 'ClipboardDemo',
-        meta: { title: 'Clipboard Demo', icon: 'clipboard' }
-      }
-    ]
-  },
-
-  {
-    path: '/i18n',
-    component: 'layout/Layout',
-    children: [
-      {
-        path: 'index',
-        component: 'views/i18n-demo/index',
-        name: 'I18n',
-        meta: { title: 'I18n', icon: 'international' }
       }
     ]
   },

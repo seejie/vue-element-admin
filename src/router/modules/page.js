@@ -3,13 +3,16 @@ import Layout from '@/layout'
 const pageRouter = [{
   path: '/index',
   component: Layout,
-  redirect: 'noRedirect',
-  name: 'Index',
-  meta: {
-    title: '首页',
-    icon: 'table'
-  },
-  children: []
+  redirect: '/index',
+  children: [{
+    path: '',
+    component: () => import('@/pages/index'),
+    name: 'Index',
+    meta: {
+      title: '首页',
+      icon: 'table'
+    }
+  }]
 }, {
   path: '/plan',
   component: Layout,
