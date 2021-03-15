@@ -159,12 +159,6 @@ const asyncRoutes = [
     },
     children: [
       {
-        path: 'line',
-        component: 'views/charts/line',
-        name: 'LineChart',
-        meta: { title: 'Line Chart', noCache: true }
-      },
-      {
         path: 'mixchart',
         component: 'views/charts/mixChart',
         name: 'MixChart',
@@ -229,22 +223,6 @@ const asyncRoutes = [
         component: 'views/excel/upload-excel',
         name: 'UploadExcel',
         meta: { title: 'Upload Excel' }
-      }
-    ]
-  },
-
-  {
-    path: '/zip',
-    component: 'layout/Layout',
-    redirect: '/zip/download',
-    alwaysShow: true,
-    meta: { title: 'Zip', icon: 'zip' },
-    children: [
-      {
-        path: 'download',
-        component: 'views/zip/index',
-        name: 'ExportZip',
-        meta: { title: 'Export Zip' }
       }
     ]
   },
