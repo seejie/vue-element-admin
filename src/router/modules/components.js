@@ -29,18 +29,6 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/mixin'),
       name: 'ComponentMixinDemo',
       meta: { title: 'Component Mixin' }
-    },
-    {
-      path: 'back-to-top',
-      component: () => import('@/views/components-demo/back-to-top'),
-      name: 'BackToTopDemo',
-      meta: { title: 'Back To Top' }
-    },
-    {
-      path: 'drag-dialog',
-      component: () => import('@/views/components-demo/drag-dialog'),
-      name: 'DragDialogDemo',
-      meta: { title: 'Drag Dialog' }
     }
   ]
 }

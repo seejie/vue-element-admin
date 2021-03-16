@@ -127,18 +127,6 @@ const asyncRoutes = [
         component: 'views/components-demo/mixin',
         name: 'ComponentMixinDemo',
         meta: { title: 'componentMixin' }
-      },
-      {
-        path: 'back-to-top',
-        component: 'views/components-demo/back-to-top',
-        name: 'BackToTopDemo',
-        meta: { title: 'Back To Top' }
-      },
-      {
-        path: 'drag-dialog',
-        component: 'views/components-demo/drag-dialog',
-        name: 'DragDialogDemo',
-        meta: { title: 'Drag Dialog' }
       }
     ]
   },
