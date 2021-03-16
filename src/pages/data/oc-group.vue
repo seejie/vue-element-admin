@@ -98,7 +98,7 @@ export default {
   }
   .el-input{
     margin: 0 1rem;
-    width: 260px;
+    width: 195px;
   }
 }
 </style>
