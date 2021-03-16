@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'TimeNodeSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState('timeNodeOpts'),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.timeNodeOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setTimeNodeOpts']),
     getData() {
       if (this.timeNodeOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setTimeNodeOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')

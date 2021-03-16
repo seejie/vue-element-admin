@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'AuditStatusSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState(['auditStatusOpts']),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.auditStatusOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setAuditStatusOpts']),
     getData() {
       if (this.auditStatusOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setAuditStatusOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')

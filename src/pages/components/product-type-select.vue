@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'ProductTypeSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState('productsTypeOpts'),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.productsTypeOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setProductsTypeOpts']),
     getData() {
       if (this.productsTypeOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setProductsTypeOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')

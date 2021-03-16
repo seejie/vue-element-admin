@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'ProgramSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState('programOpts'),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.programOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setProgramOpts']),
     getData() {
       if (this.programOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setProgramOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')

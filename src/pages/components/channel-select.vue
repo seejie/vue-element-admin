@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'ChannelSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState('channelOpts'),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.channelOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setChannelOpts']),
     getData() {
       if (this.channelOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setChannelOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')

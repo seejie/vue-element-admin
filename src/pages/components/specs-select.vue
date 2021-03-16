@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'SpecsSelect',
@@ -23,17 +23,23 @@ export default {
   },
   computed: {
     ...mapState('specsOpts'),
-    curr() {
-      return this.data
+    curr: {
+      set(item) {
+        this.$emit('update:data', item)
+      },
+      get() {
+        return this.data
+      }
     },
     options() {
       return this.specsOpts
     }
   },
   methods: {
+    ...mapMutations('base', ['setSpecsOpts']),
     getData() {
       if (this.specsOpts.length) return
-      this.options = [{ label: 'test', value: 'test' }]
+      this.setSpecsOpts([{ label: 'test', value: 'test' }])
     },
     onChanged() {
       this.$emit('change')
