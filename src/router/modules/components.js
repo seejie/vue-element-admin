@@ -25,12 +25,6 @@ const componentsRouter = {
       meta: { title: 'Dropzone' }
     },
     {
-      path: 'sticky',
-      component: () => import('@/views/components-demo/sticky'),
-      name: 'StickyDemo',
-      meta: { title: 'Sticky' }
-    },
-    {
       path: 'mixin',
       component: () => import('@/views/components-demo/mixin'),
       name: 'ComponentMixinDemo',

@@ -123,12 +123,6 @@ const asyncRoutes = [
         meta: { title: 'Dropzone' }
       },
       {
-        path: 'sticky',
-        component: 'views/components-demo/sticky',
-        name: 'StickyDemo',
-        meta: { title: 'Sticky' }
-      },
-      {
         path: 'mixin',
         component: 'views/components-demo/mixin',
         name: 'ComponentMixinDemo',
@@ -187,42 +181,6 @@ const asyncRoutes = [
         component: 'views/error-page/404',
         name: 'Page404',
         meta: { title: 'Page 404', noCache: true }
-      }
-    ]
-  },
-  {
-    path: '/excel',
-    component: 'layout/Layout',
-    redirect: '/excel/export-excel',
-    name: 'Excel',
-    meta: {
-      title: 'Excel',
-      icon: 'excel'
-    },
-    children: [
-      {
-        path: 'export-excel',
-        component: 'views/excel/export-excel',
-        name: 'ExportExcel',
-        meta: { title: 'Export Excel' }
-      },
-      {
-        path: 'export-selected-excel',
-        component: 'views/excel/select-excel',
-        name: 'SelectExcel',
-        meta: { title: 'Select Excel' }
-      },
-      {
-        path: 'export-merge-header',
-        component: 'views/excel/merge-header',
-        name: 'MergeHeader',
-        meta: { title: 'Merge Header' }
-      },
-      {
-        path: 'upload-excel',
-        component: 'views/excel/upload-excel',
-        name: 'UploadExcel',
-        meta: { title: 'Upload Excel' }
       }
     ]
   },
