@@ -16,7 +16,7 @@
       <el-table-column fixed prop="date" label="失效日期" header-align="center" />
       <el-table-column fixed prop="date" label="备注" header-align="center" />
       <el-table-column fixed prop="date" label="替换产品" header-align="center" />
-      <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
+      <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="edit(scope.row)">编辑</el-button>
           <el-button type="text" size="small" @click="download(scope.row)">下载高清图</el-button>
