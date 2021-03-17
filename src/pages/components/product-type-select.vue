@@ -47,9 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.el-select{
-  margin: 0 1rem;
-}
-</style>

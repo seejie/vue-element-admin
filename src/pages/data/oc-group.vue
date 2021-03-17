@@ -1,27 +1,41 @@
 <template>
   <div class="wrapper">
-    <div class="operation-pannel">
-      <div class="row">
-        <div class="item">
-          <span>组包编号/名称</span>
-          <el-input v-model="name" placeholder="请输入" />
-        </div>
-        <div class="item">
-          <span>部门（Function）</span>
-          <dept-select :data.sync="dept" />
-        </div>
+    <el-form :model="form" inline>
+      <el-form-item label="组包编号/名称" label-width="102px">
+        <el-input v-model="form.name" placeholder="请输入" />
+      </el-form-item>
+
+      <el-form-item label="部门（Function）" label-width="128px">
+        <dept-select :data.sync="form.dept" />
+      </el-form-item>
+
+      <el-form-item>
         <el-button type="primary" @click="search">检索</el-button>
-      </div>
-      <div class="row">
+      </el-form-item>
+      <!-- </el-form>
+
+    <el-form inline> -->
+      <el-form-item>
         <el-button type="primary" @click="create">新增组包</el-button>
-        <div class="upload-wrapper">
-          <span>批量导入组包</span>
-          <div>upload</div>
-        </div>
+      </el-form-item>
+
+      <el-form-item label="批量导入组包" label-width="100px">
+        <el-upload
+          class="upload-box"
+          drag
+          action=""
+          multiple
+        >
+          <i class="el-icon-upload" />
+          <div class="el-upload__text">将组包信息文件拖到这里，点击上传</div>
+        </el-upload>
+      </el-form-item>
+
+      <el-form-item>
         <el-button type="primary" @click="upload">上传</el-button>
-        <el-button type="text" @click="upload">下载导入模板</el-button>
-      </div>
-    </div>
+        <el-button type="text" @click="download">下载导入模板</el-button>
+      </el-form-item>
+    </el-form>
 
     <el-table :data="tableData" border>
       <el-table-column fixed prop="date" label="缩略图" header-align="center" />
@@ -43,14 +57,18 @@
 </template>
 
 <script>
-import deptSelect from '../components/dept-select'
+import DeptSelect from '../components/dept-select.vue'
 
 export default {
   name: 'OcGroup',
-  components: { deptSelect },
+  components: { DeptSelect },
   data() {
     return {
       tableData: [],
+      form: {
+        name: '',
+        dept: ''
+      },
       name: '',
       dept: ''
     }
@@ -76,41 +94,26 @@ export default {
     },
     upload() {
 
+    },
+    download() {
+
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.operation-pannel{
-  margin-bottom: 1.5rem;
-  .row{
+<style lang="scss">
+.upload-box{
+  .el-upload-dragger{
+    height: 40px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    &+.row{
-      margin-top: 1rem;
+    .el-icon-upload{
+      font-size: 18px;
+      line-height: 1;
+      margin: 0 .5rem;
     }
-    .upload-wrapper{
-      flex:1;
-      display:flex;
-      margin: 0 1rem;
-    }
-    .item{
-      min-width: 200px;
-      span{
-        min-width: 120px;
-      }
-    }
-    &:nth-child(1) {
-      .el-button {
-        margin-left: 1rem;
-      }
-    }
-  }
-  .el-input{
-    margin: 0 1rem;
-    width: 195px;
   }
 }
 </style>

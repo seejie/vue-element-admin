@@ -1,54 +1,46 @@
 <template>
   <div class="wrapper">
-    <div class="operation-pannel">
-      <div class="row">
-        <div class="item">
-          <span>单片编码/名称</span>
-          <el-input v-model="name" placeholder="请输入" />
-        </div>
+    <el-form :model="form" inline>
+      <el-form-item label="单片编码/名称" label-width="102px">
+        <el-input v-model="form.name" placeholder="请输入" />
+      </el-form-item>
 
-        <div class="item">
-          <span>单片市场价</span>
+      <el-form-item label="单片市场价" label-width="82px">
+        <el-input v-model="form.price" placeholder="请输入" />
+      </el-form-item>
 
-        </div>
+      <el-form-item label="品类" label-width="40px">
+        <product-type-select :data.sync="form.prodType" />
+      </el-form-item>
 
-        <div class="item">
-          <span>品类</span>
-          <product-type-select :data.sync="prodType" />
-        </div>
+      <el-form-item label="产品线" label-width="54px">
+        <product-line-select :data.sync="form.prodLine" />
+      </el-form-item>
 
-        <div class="item">
-          <span>产品线</span>
-          <product-line-select :data.sync="prodLine" />
-        </div>
+      <el-form-item label="有效时间" label-width="68px">
+        <el-col :span="11">
+          <el-date-picker v-model="form.sDate" type="date" placeholder="选择日期" style="width: 100%;" />
+        </el-col>
+        <el-col class="line" :span="2">-</el-col>
+        <el-col :span="11">
+          <el-date-picker v-model="form.eDate" type="date" placeholder="选择日期" style="width: 100%;" />
+        </el-col>
+      </el-form-item>
 
-        <div class="item">
-          <span>有效时间</span>
-          <specs-select :data.sync="prodLine" />
-        </div>
+      <el-form-item label="规格" label-width="54px">
+        <specs-select :data.sync="form.specs" />
+      </el-form-item>
 
-        <div class="item">
-          <span>规格</span>
-          <product-line-select :data.sync="prodLine" />
-        </div>
+      <el-form-item label="毫升数" label-width="54px">
+        <el-input v-model="form.size" placeholder="请输入" />
+      </el-form-item>
 
-        <div class="item">
-          <span>毫升数</span>
-          <el-input v-model="name" placeholder="请输入" />
-        </div>
+      <el-form-item label="毫升数" label-width="54px">
         <el-button type="primary" @click="search">检索</el-button>
-      </div>
-
-      <div class="row">
-        <el-button type="primary" @click="create">新增组包</el-button>
-        <div class="upload-wrapper">
-          <span>批量导入组包</span>
-          <div>upload</div>
-        </div>
-        <el-button type="primary" @click="upload">上传</el-button>
-        <el-button type="text" @click="upload">下载导入模板</el-button>
-      </div>
-    </div>
+        <el-button type="primary" @click="create">新建</el-button>
+        <el-button type="primary" @click="importData">导入</el-button>
+      </el-form-item>
+    </el-form>
 
     <el-table :data="tableData" border>
       <el-table-column fixed prop="date" label="缩略图" header-align="center" />
@@ -91,9 +83,16 @@ export default {
   data() {
     return {
       tableData: [],
-      name: '',
-      prodType: '',
-      prodLine: ''
+      form: {
+        name: '',
+        price: '',
+        prodType: '',
+        prodLine: '',
+        sDate: '',
+        eDate: '',
+        specs: '',
+        size: ''
+      }
     }
   },
   mounted() {
@@ -108,41 +107,22 @@ export default {
     },
     download(item) {
       console.log(item, '-----item-----')
+    },
+    search() {
+
+    },
+    create() {
+
+    },
+    importData() {
+
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.operation-pannel{
-  margin-bottom: 1.5rem;
-  .row{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    &+.row{
-      margin-top: 1rem;
-    }
-    .upload-wrapper{
-      flex:1;
-      display:flex;
-      margin: 0 1rem;
-    }
-    .item{
-      min-width: 200px;
-      span{
-        min-width: 120px;
-      }
-    }
-    &:nth-child(1) {
-      .el-button {
-        margin-left: 1rem;
-      }
-    }
-  }
-  .el-input{
-    margin: 0 1rem;
-    width: 195px;
-  }
+.el-col-2{
+  text-align: center;
 }
 </style>

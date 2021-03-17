@@ -5,7 +5,7 @@
     width="800px"
     :before-close="handleClose"
   >
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form :model="form" label-width="80px">
       <el-form-item label="年度时间">
         <el-col :span="11">
           <el-date-picker v-model="form.sDate" type="date" placeholder="选择日期" style="width: 100%;" />
