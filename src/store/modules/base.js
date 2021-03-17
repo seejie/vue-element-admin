@@ -6,7 +6,8 @@ const state = {
   productsTypeOpts: [],
   programOpts: [],
   specsOpts: [],
-  timeNodeOpts: []
+  timeNodeOpts: [],
+  productsOpts: []
 }
 
 const mutations = {
@@ -33,6 +34,9 @@ const mutations = {
   },
   setTimeNodeOpts: (state, paylod) => {
     state.timeNodeOpts = paylod
+  },
+  setProductsOpts: (state, paylod) => {
+    state.productsOpts = paylod
   }
 }
 
@@ -60,6 +64,9 @@ const actions = {
   },
   getTimeNodeOpts({ commit }) {
     commit('setTimeNodeOpts', [])
+  },
+  getProductsOpts({ commit }) {
+    commit('setProductsOpts', [])
   }
 }
 

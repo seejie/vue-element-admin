@@ -13,12 +13,19 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <yearly-config-modal
+      :visible.sync="showModal"
+    />
   </div>
 </template>
 
 <script>
+import yearlyConfigModal from './yearly-config-modal.vue'
+
 export default {
   name: 'Schedule',
+  components: { yearlyConfigModal },
   data() {
     return {
       tableData: [],
@@ -35,6 +42,7 @@ export default {
       }]
     },
     create() {
+      console.log(1, '-----1-----')
       this.showModal = true
     },
     edit(item) {
