@@ -22,7 +22,7 @@ export default {
     this.getData()
   },
   computed: {
-    ...mapState('timeNodeOpts'),
+    ...mapState('base', ['timeNodeOpts']),
     curr: {
       set(item) {
         this.$emit('update:data', item)

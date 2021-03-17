@@ -22,7 +22,7 @@ export default {
     this.getData()
   },
   computed: {
-    ...mapState('channelOpts'),
+    ...mapState('base', ['channelOpts']),
     curr: {
       set(item) {
         this.$emit('update:data', item)

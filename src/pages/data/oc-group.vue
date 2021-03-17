@@ -2,11 +2,11 @@
   <div class="wrapper">
     <div class="operation-pannel">
       <div class="row">
-        <div>
+        <div class="item">
           <span>组包编号/名称</span>
           <el-input v-model="name" placeholder="请输入" />
         </div>
-        <div style="flex:1;">
+        <div class="item">
           <span>部门（Function）</span>
           <dept-select :data.sync="dept" />
         </div>
@@ -87,6 +87,7 @@ export default {
   .row{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     &+.row{
       margin-top: 1rem;
     }
@@ -94,6 +95,17 @@ export default {
       flex:1;
       display:flex;
       margin: 0 1rem;
+    }
+    .item{
+      min-width: 200px;
+      span{
+        min-width: 120px;
+      }
+    }
+    &:nth-child(1) {
+      .el-button {
+        margin-left: 1rem;
+      }
     }
   }
   .el-input{

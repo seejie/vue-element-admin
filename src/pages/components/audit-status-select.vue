@@ -22,7 +22,7 @@ export default {
     this.getData()
   },
   computed: {
-    ...mapState(['auditStatusOpts']),
+    ...mapState('base', ['auditStatusOpts']),
     curr: {
       set(item) {
         this.$emit('update:data', item)

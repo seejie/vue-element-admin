@@ -42,11 +42,6 @@ const pageRouter = [{
     component: () => import('@/pages/plan/delivery'),
     name: 'delivery',
     meta: { title: '实际发货' }
-  }, {
-    path: 'repertory',
-    component: () => import('@/pages/plan/repertory'),
-    name: 'repertory',
-    meta: { title: '库存导入' }
   }]
 }, {
   path: '/my',

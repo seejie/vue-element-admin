@@ -22,7 +22,7 @@ export default {
     this.getData()
   },
   computed: {
-    ...mapState('programOpts'),
+    ...mapState('base', ['programOpts']),
     curr: {
       set(item) {
         this.$emit('update:data', item)

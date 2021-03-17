@@ -22,7 +22,7 @@ export default {
     this.getData()
   },
   computed: {
-    ...mapState('productLineOpts'),
+    ...mapState('base', ['productLineOpts']),
     curr: {
       set(item) {
         this.$emit('update:data', item)
@@ -47,3 +47,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.el-select{
+  margin: 0 1rem;
+}
+</style>
