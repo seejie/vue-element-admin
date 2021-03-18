@@ -2,40 +2,46 @@
   <div class="wrapper">
     <el-form :model="form" inline>
       <el-form-item label="单片编码/名称" label-width="102px">
-        <el-input v-model="form.name" placeholder="请输入" />
+        <el-input v-model="form.name" placeholder="请输入" style="width:345px;" />
       </el-form-item>
 
-      <el-form-item label="单片市场价" label-width="82px">
-        <el-input v-model="form.price" placeholder="请输入" />
+      <el-form-item label="单片市场价" label-width="102px">
+        <span class="number-wrapper">
+          <el-input v-model="form.price" placeholder="请输入" />
+        </span>
+        <span class="line">-</span>
+        <span class="number-wrapper">
+          <el-input v-model="form.price" placeholder="请输入" />
+        </span>
       </el-form-item>
 
-      <el-form-item label="品类" label-width="40px">
+      <el-form-item label="品类" label-width="102px">
         <product-type-select :data.sync="form.prodType" />
       </el-form-item>
 
-      <el-form-item label="产品线" label-width="54px">
+      <el-form-item label="产品线" label-width="102px">
         <product-line-select :data.sync="form.prodLine" />
       </el-form-item>
 
-      <el-form-item label="有效时间" label-width="68px">
-        <el-col :span="11">
+      <el-form-item label="有效时间" label-width="102px">
+        <span class="date-wrapper">
           <el-date-picker v-model="form.sDate" type="date" placeholder="选择日期" style="width: 100%;" />
-        </el-col>
-        <el-col class="line" :span="2">-</el-col>
-        <el-col :span="11">
+        </span>
+        <span class="line">-</span>
+        <span class="date-wrapper">
           <el-date-picker v-model="form.eDate" type="date" placeholder="选择日期" style="width: 100%;" />
-        </el-col>
+        </span>
       </el-form-item>
 
-      <el-form-item label="规格" label-width="54px">
+      <el-form-item label="规格" label-width="102px">
         <specs-select :data.sync="form.specs" />
       </el-form-item>
 
-      <el-form-item label="毫升数" label-width="54px">
-        <el-input v-model="form.size" placeholder="请输入" />
+      <el-form-item label="毫升数" label-width="102px">
+        <el-input v-model="form.size" placeholder="请输入" style="width:195px" />
       </el-form-item>
 
-      <el-form-item label="毫升数" label-width="54px">
+      <el-form-item label=" " label-width="50px">
         <el-button type="primary" @click="search">检索</el-button>
         <el-button type="primary" @click="create">新建</el-button>
         <el-button type="primary" @click="importData">导入</el-button>
@@ -122,7 +128,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-col-2{
-  text-align: center;
+.date-wrapper {
+  display: inline-block;
+  width: 160px;
+}
+.number-wrapper{
+  display: inline-block;
+  width: 84px;
+}
+.line {
+  margin: 0 10px;
 }
 </style>
