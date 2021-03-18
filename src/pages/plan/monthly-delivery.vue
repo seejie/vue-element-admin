@@ -1,25 +1,113 @@
 <template>
   <div class="wrapper">
-    <el-table :data="tableData" border>
-      <el-table-column fixed prop="date" label="缩略图" header-align="center" />
-      <el-table-column fixed prop="date" label="编码" header-align="center" />
-      <el-table-column fixed prop="date" label="名称" header-align="center" />
-      <el-table-column fixed prop="date" label="品类" header-align="center" />
-      <el-table-column fixed prop="date" label="备注" header-align="center" />
-      <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-      <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
-      <el-table-column fixed prop="date" label="本次申请 发货数量" header-align="center" />
-      <el-table-column fixed prop="date" label="本次申请发货 市场价" header-align="center" />
-    </el-table>
+    <el-form :model="form" inline>
+      <el-form-item label="申请单号" label-width="72px">
+        <el-input v-model="form.order" placeholder="请输入" />
+      </el-form-item>
+
+      <el-form-item label="申请月份" label-width="72px">
+        <el-date-picker v-model="form.month" type="month" placeholder="选择日期" style="width: 100%;" />
+      </el-form-item>
+
+      <el-form-item label="使用渠道" label-width="72px">
+        <channel-select :data="form.channel" />
+      </el-form-item>
+
+      <el-form-item label="用途" label-width="40px">
+        <program-select :data="form.program" />
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="search">检索</el-button>
+      </el-form-item>
+    </el-form>
+
+    <el-form inline>
+      <el-form-item label="上传文件" label-width="72px">
+        <el-upload
+          class="upload-box"
+          drag
+          action=""
+          multiple
+        >
+          <i class="el-icon-upload" />
+          <div class="el-upload__text">将组包信息文件拖到这里，点击上传</div>
+        </el-upload>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="upload">上传</el-button>
+        <el-button type="text" @click="download">下载导入模板</el-button>
+      </el-form-item>
+    </el-form>
+
+    <el-tabs type="border-card">
+      <el-tab-pane label="单片申请">
+        <el-table :data="tableData" border>
+          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
+          <el-table-column fixed prop="date" label="编码" header-align="center" />
+          <el-table-column fixed prop="date" label="名称" header-align="center" />
+          <el-table-column fixed prop="date" label="品类" header-align="center" />
+          <el-table-column fixed prop="date" label="备注" header-align="center" />
+          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
+          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请 发货数量" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请发货 市场价" header-align="center" />
+        </el-table>
+      </el-tab-pane>
+
+      <el-tab-pane label="套包申请">
+        <el-table :data="tableData" border>
+          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
+          <el-table-column fixed prop="date" label="编码" header-align="center" />
+          <el-table-column fixed prop="date" label="名称" header-align="center" />
+          <el-table-column fixed prop="date" label="品类" header-align="center" />
+          <el-table-column fixed prop="date" label="备注" header-align="center" />
+          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
+          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请 发货数量" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请发货 市场价" header-align="center" />
+        </el-table>
+      </el-tab-pane>
+
+      <el-tab-pane label="单片汇总(提交)">
+        <el-table :data="tableData" border>
+          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
+          <el-table-column fixed prop="date" label="编码" header-align="center" />
+          <el-table-column fixed prop="date" label="名称" header-align="center" />
+          <el-table-column fixed prop="date" label="品类" header-align="center" />
+          <el-table-column fixed prop="date" label="备注" header-align="center" />
+          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
+          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请 发货数量" header-align="center" />
+          <el-table-column fixed prop="date" label="本次申请发货 市场价" header-align="center" />
+        </el-table>
+      </el-tab-pane>
+    </el-tabs>
+
   </div>
 </template>
 
 <script>
+import ChannelSelect from '../components/channel-select.vue'
+import ProgramSelect from '../components/program-select.vue'
+
 export default {
   name: 'MonthlyDelivery',
+  components: {
+    ChannelSelect,
+    ProgramSelect
+  },
   data() {
     return {
-      tableData: []
+      tableData: [],
+      form: {
+        order: '',
+        month: '',
+        channel: '',
+        program: '',
+        code: ''
+      }
     }
   },
   mounted() {
@@ -33,7 +121,19 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.upload-box{
+  .el-upload-dragger{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .el-icon-upload{
+      font-size: 18px;
+      line-height: 1;
+      margin: 0 .5rem;
+    }
+  }
+}
 </style>
 

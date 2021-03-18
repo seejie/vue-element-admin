@@ -12,30 +12,13 @@
       <el-form-item>
         <el-button type="primary" @click="search">检索</el-button>
       </el-form-item>
-      <!-- </el-form>
 
-    <el-form inline> -->
       <el-form-item>
         <el-button type="primary" @click="create">新增组包</el-button>
       </el-form-item>
-
-      <el-form-item label="批量导入组包" label-width="100px">
-        <el-upload
-          class="upload-box"
-          drag
-          action=""
-          multiple
-        >
-          <i class="el-icon-upload" />
-          <div class="el-upload__text">将组包信息文件拖到这里，点击上传</div>
-        </el-upload>
-      </el-form-item>
-
-      <el-form-item>
-        <el-button type="primary" @click="upload">上传</el-button>
-        <el-button type="text" @click="download">下载导入模板</el-button>
-      </el-form-item>
     </el-form>
+
+    <upload />
 
     <el-table :data="tableData" border>
       <el-table-column fixed prop="date" label="缩略图" header-align="center" />
@@ -58,10 +41,11 @@
 
 <script>
 import DeptSelect from '../components/dept-select.vue'
+import Upload from '../components/upload.vue'
 
 export default {
   name: 'OcGroup',
-  components: { DeptSelect },
+  components: { DeptSelect, Upload },
   data() {
     return {
       tableData: [],
