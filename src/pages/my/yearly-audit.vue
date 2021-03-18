@@ -19,11 +19,11 @@
         </span>
       </el-form-item>
 
-      <el-form-item label="申请月份" label-width="102px">
-        <el-date-picker v-model="form.month" type="month" placeholder="选择月份" style="width: 100%;" />
+      <el-form-item label="申请年份" label-width="102px">
+        <el-date-picker v-model="form.eDate" type="year" placeholder="选择日期" style="width: 100%;" />
       </el-form-item>
 
-      <el-form-item label="申请月份" label-width="102px">
+      <el-form-item label="审核状态" label-width="102px">
         <audit-status-select v-model="form.status" type="month" style="width: 100%;" />
       </el-form-item>
 
@@ -35,7 +35,7 @@
 
     <el-table :data="tableData" border>
       <el-table-column fixed prop="date" label="申请单号" header-align="center" />
-      <el-table-column fixed prop="date" label="部门（Function）" header-align="center" />
+      <el-table-column fixed prop="date" label="部门" header-align="center" />
       <el-table-column fixed prop="date" label="渠道" header-align="center" />
       <el-table-column fixed prop="date" label="Program" header-align="center" />
       <el-table-column fixed prop="date" label="申请人" header-align="center" />
@@ -66,7 +66,15 @@ export default {
   },
   data() {
     return {
-      tableData: []
+      tableData: [],
+      form: {
+        dept: '',
+        order: '',
+        sDate: '',
+        eDate: '',
+        month: '',
+        status: ''
+      }
     }
   },
   mounted() {
@@ -78,6 +86,12 @@ export default {
     },
     check(item) {
       console.log(item, '-----item-----')
+    },
+    search() {
+
+    },
+    exportData() {
+
     }
   }
 }

@@ -5,7 +5,7 @@
         <el-input v-model="form.name" placeholder="请输入" />
       </el-form-item>
 
-      <el-form-item label="部门（Function）" label-width="128px">
+      <el-form-item label="部门" label-width="42px">
         <dept-select :data.sync="form.dept" />
       </el-form-item>
 
@@ -41,7 +41,7 @@
       <el-table-column fixed prop="date" label="缩略图" header-align="center" />
       <el-table-column fixed prop="date" label="组包编号" header-align="center" />
       <el-table-column fixed prop="date" label="组包名称" header-align="center" />
-      <el-table-column fixed prop="date" label="所属部门（Function）" header-align="center" />
+      <el-table-column fixed prop="date" label="所属部门" header-align="center" />
       <el-table-column fixed prop="date" label="组包价格" header-align="center" />
       <el-table-column fixed prop="date" label="包含单片数量" header-align="center" />
       <el-table-column fixed prop="date" label="创建日期" header-align="center" />

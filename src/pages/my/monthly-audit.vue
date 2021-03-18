@@ -23,7 +23,7 @@
         <el-date-picker v-model="form.month" type="month" placeholder="选择月份" style="width: 100%;" />
       </el-form-item>
 
-      <el-form-item label="申请月份" label-width="102px">
+      <el-form-item label="审核状态" label-width="102px">
         <audit-status-select v-model="form.status" type="month" style="width: 100%;" />
       </el-form-item>
 
@@ -35,7 +35,7 @@
 
     <el-table :data="tableData" border>
       <el-table-column fixed prop="date" label="申请单号" header-align="center" />
-      <el-table-column fixed prop="date" label="部门（Function）" header-align="center" />
+      <el-table-column fixed prop="date" label="部门" header-align="center" />
       <el-table-column fixed prop="date" label="渠道" header-align="center" />
       <el-table-column fixed prop="date" label="Program" header-align="center" />
       <el-table-column fixed prop="date" label="申请人" header-align="center" />
