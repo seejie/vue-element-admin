@@ -101,36 +101,6 @@ const asyncRoutes = [
     ]
   },
   {
-    path: '/components',
-    component: 'layout/Layout',
-    redirect: 'noRedirect',
-    name: 'ComponentDemo',
-    meta: {
-      title: 'Components',
-      icon: 'component'
-    },
-    children: [
-      {
-        path: 'avatar-upload',
-        component: 'views/components-demo/avatar-upload',
-        name: 'AvatarUploadDemo',
-        meta: { title: 'Avatar Upload' }
-      },
-      {
-        path: 'dropzone',
-        component: 'views/components-demo/dropzone',
-        name: 'DropzoneDemo',
-        meta: { title: 'Dropzone' }
-      },
-      {
-        path: 'mixin',
-        component: 'views/components-demo/mixin',
-        name: 'ComponentMixinDemo',
-        meta: { title: 'componentMixin' }
-      }
-    ]
-  },
-  {
     path: '/charts',
     component: 'layout/Layout',
     redirect: 'noRedirect',
