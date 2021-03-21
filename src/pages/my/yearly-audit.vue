@@ -51,18 +51,26 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <audit-modal
+      :id.sync="currId"
+      type="yearly"
+    />
   </div>
 </template>
 
 <script>
 import AuditStatusSelect from '../components/audit-status-select.vue'
 import deptSelect from '../components/dept-select.vue'
+import AuditModal from './audit-modal.vue'
+import { yearlyAudit, importYearlyAudit } from '../../api/index'
 
 export default {
   name: 'YearlyAudit',
   components: {
     deptSelect,
-    AuditStatusSelect
+    AuditStatusSelect,
+    AuditModal
   },
   data() {
     return {
@@ -74,24 +82,30 @@ export default {
         eDate: '',
         month: '',
         status: ''
-      }
+      },
+      currId: ''
     }
   },
   mounted() {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await yearlyAudit()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     check(item) {
       console.log(item, '-----item-----')
+      // this.currId = item.id
+      this.currId = 1
     },
     search() {
 
     },
-    exportData() {
-
+    async exportData() {
+      const res = await importYearlyAudit()
+      console.log(res, '-----res-----')
     }
   }
 }

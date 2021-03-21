@@ -5,7 +5,7 @@
         <el-input v-model="form.user" placeholder="请输入" style="width:195px" />
       </el-form-item>
 
-      <el-form-item label="Program" label-width="102px">
+      <el-form-item label="用途" label-width="102px">
         <program-select :data.sync="form.program" />
       </el-form-item>
 
@@ -70,6 +70,7 @@
 import programSelect from '../components/program-select.vue'
 import productLineSelect from '../components/product-line-select.vue'
 import productTypeSelect from '../components/product-type-select.vue'
+import { queryFCST, exportFSCT } from '../../api/index'
 
 export default {
   name: 'FCST',
@@ -104,7 +105,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await queryFCST()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     handleSizeChange() {
@@ -116,8 +119,9 @@ export default {
     search() {
 
     },
-    exportData() {
-
+    async exportData() {
+      const res = await exportFSCT()
+      console.log(res, '-----res-----')
     }
   }
 }
@@ -130,5 +134,9 @@ export default {
 }
 .line {
   margin: 0 10px;
+}
+.el-pagination{
+  margin-top: 1rem;
+  text-align: right;
 }
 </style>

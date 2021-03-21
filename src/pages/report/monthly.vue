@@ -30,6 +30,10 @@
       <el-form-item label="OC编号/名称" label-width="102px">
         <el-input v-model="form.name" placeholder="请输入" style="width: 195px;" />
       </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="search">检索</el-button>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -39,6 +43,8 @@ import deptSelect from '../components/dept-select.vue'
 import ProductLineSelect from '../components/product-line-select.vue'
 import ProductTypeSelect from '../components/product-type-select.vue'
 import ProgramSelect from '../components/program-select.vue'
+import { getReport } from '../../api/index'
+
 export default {
   name: 'Monthly',
   components: { deptSelect, ProgramSelect, ProductTypeSelect, ProductLineSelect },
@@ -51,6 +57,18 @@ export default {
         prodLine: '',
         name: ''
       }
+    }
+  },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    async getData() {
+      const res = await getReport()
+      console.log(res, '-----res-----')
+    },
+    search() {
+
     }
   }
 }

@@ -79,3 +79,115 @@ export function getOcDetail(id) {
     method: 'get'
   })
 }
+
+// 月度分析报告
+export function getReport() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 实际发货汇总查询
+export function queryActual() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// FSCT汇总查询
+export function queryFCST() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 导出汇总查询
+export function exportFSCT() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 月度审核
+export function monthlyAudit() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 导出月度审核
+export function importMonthlyAudit() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 月度审核详情
+export function monthlyAuditDetail() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 驳回月度审核
+export function monthlyAuditReject() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 通过月度审核
+export function monthlyAuditPass() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 年度审核
+export function yearlyAudit() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 导出年度审核
+export function importYearlyAudit() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 年度审核详情
+export function yearlyAuditDetail() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 驳回年度审核
+export function yearlyAuditReject() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 通过年度审核
+export function yearlyAuditPass() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}

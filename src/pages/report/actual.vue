@@ -65,6 +65,7 @@
 <script>
 import productTypeSelect from '../components/product-type-select.vue'
 import productLineSelect from '../components/product-line-select.vue'
+import { queryActual } from '../../api/index'
 
 export default {
   name: 'Actual',
@@ -93,7 +94,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await queryActual()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     handleSizeChange() {
@@ -119,5 +122,9 @@ export default {
 }
 .line {
   margin: 0 10px;
+}
+.el-pagination{
+  margin-top: 1rem;
+  text-align: right;
 }
 </style>
