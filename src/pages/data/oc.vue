@@ -65,12 +65,21 @@
       <el-table-column fixed prop="date" label="备注" header-align="center" />
       <el-table-column fixed prop="date" label="替换产品" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
-        <template slot-scope="scope">
-          <el-button type="text" size="small" @click="edit(scope.row)">编辑</el-button>
-          <el-button type="text" size="small" @click="download(scope.row)">下载高清图</el-button>
+        <template slot-scope="{row}">
+          <el-button type="text" size="small" @click="edit(row)">编辑</el-button>
+          <el-button type="text" size="small" @click="download(row)">下载高清图</el-button>
         </template>
       </el-table-column>
     </el-table>
+
+    <set-oc
+      :id="currId"
+      :visible.sync="showModal"
+    />
+
+    <import-oc
+      :visible.sync="showImportModal"
+    />
   </div>
 </template>
 
@@ -78,13 +87,18 @@
 import productTypeSelect from '../components/product-type-select.vue'
 import productLineSelect from '../components/product-line-select.vue'
 import SpecsSelect from '../components/specs-select.vue'
+import { getOc } from '../../api/index'
+import ImportOc from './import-oc.vue'
+import SetOc from './set-oc.vue'
 
 export default {
   name: 'OC',
   components: {
     productTypeSelect,
     productLineSelect,
-    SpecsSelect
+    SpecsSelect,
+    ImportOc,
+    SetOc
   },
   data() {
     return {
@@ -98,18 +112,25 @@ export default {
         eDate: '',
         specs: '',
         size: ''
-      }
+      },
+      currId: '',
+      showModal: false,
+      showImportModal: false
     }
   },
   mounted() {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await getOc()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     edit(item) {
       console.log(item, '-----item-----')
+      this.currId = item.id || ''
+      this.showModal = true
     },
     download(item) {
       console.log(item, '-----item-----')
@@ -118,10 +139,11 @@ export default {
 
     },
     create() {
-
+      this.currId = ''
+      this.showModal = true
     },
     importData() {
-
+      this.showImportModal = true
     }
   }
 }

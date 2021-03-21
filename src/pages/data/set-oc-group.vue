@@ -1,15 +1,15 @@
 <template>
   <el-dialog
-    title="年度设置"
-    :visible="dialogVisible || true"
+    title="组包设置"
+    :visible="dialogVisible"
     width="800px"
     :before-close="handleClose"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
   >
-    <el-form :model="form" label-width="80px">
+    <el-form :model="form" label-width="80px" inline>
       <el-form-item label="组包编号">
-        <el-input v-model="form.order" type="text" style="width: 350px;" />
+        <el-input v-model="form.order" type="text" />
       </el-form-item>
 
       <el-form-item label="选择部门">
@@ -17,7 +17,7 @@
       </el-form-item>
 
       <el-form-item label="年度备注">
-        <el-input v-model="form.note" type="textarea" style="width: 350px;" />
+        <el-input v-model="form.note" type="textarea" style="width: 465px;" />
       </el-form-item>
 
       <el-form-item label="选择单片">
@@ -118,7 +118,7 @@ export default {
       console.log(this.form, '-----this.form-----')
       console.log(this.tableData, '-----this.tableData-----')
       this.dialogVisible = false
-      const res = addOcGroup()
+      const res = await addOcGroup()
       console.log(res, '-----res-----')
     },
     del(idx) {

@@ -8,7 +8,7 @@
         multiple
       >
         <i class="el-icon-upload" />
-        <div>将组包信息文件拖到这里，点击上传</div>
+        <div>将文件拖到这里，点击上传</div>
       </el-upload>
     </el-form-item>
 

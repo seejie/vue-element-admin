@@ -123,7 +123,7 @@ export default {
       console.log(this.form, '-----this.form-----')
       console.log(this.tableData, '-----this.tableData-----')
       this.dialogVisible = false
-      const res = addSchedule()
+      const res = await addSchedule()
       console.log(res, '-----res-----')
     },
     edit(item) {

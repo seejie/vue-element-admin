@@ -30,11 +30,11 @@
       <el-table-column fixed prop="date" label="创建日期" header-align="center" />
       <el-table-column fixed prop="date" label="创建人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
-        <template slot-scope="scope">
-          <el-popconfirm title="确定删除吗？" @onConfirm="del(scope.row)">
+        <template slot-scope="{row}">
+          <el-popconfirm title="确定删除吗？" @onConfirm="del(row)">
             <el-button slot="reference" type="text" size="small">删除</el-button>
           </el-popconfirm>
-          <el-button type="text" size="small" @click="edit(scope.row)">编辑</el-button>
+          <el-button type="text" size="small" @click="edit(row)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -50,7 +50,7 @@
 import DeptSelect from '../components/dept-select.vue'
 import Upload from '../components/upload.vue'
 import { getOcGroup, delOcGroup } from '../../api/index'
-import SetOcGroup from './set-oc.group.vue'
+import SetOcGroup from './set-oc-group.vue'
 
 export default {
   name: 'OcGroup',

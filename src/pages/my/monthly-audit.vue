@@ -46,8 +46,8 @@
       <el-table-column fixed prop="date" label="审核日期" header-align="center" />
       <el-table-column fixed prop="date" label="审核人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
-        <template slot-scope="scope">
-          <el-button type="text" size="small" @click="check(scope.row)">查看</el-button>
+        <template slot-scope="{row}">
+          <el-button type="text" size="small" @click="check(row)">查看</el-button>
         </template>
       </el-table-column>
     </el-table>
