@@ -31,21 +31,30 @@
       <el-table-column fixed prop="date" label="创建人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="del(scope.row)">删除</el-button>
+          <el-popconfirm title="确定删除吗？" @onConfirm="del(scope.row)">
+            <el-button slot="reference" type="text" size="small">删除</el-button>
+          </el-popconfirm>
           <el-button type="text" size="small" @click="edit(scope.row)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
+
+    <set-oc-group
+      :id="currId"
+      :visible.sync="showModal"
+    />
   </div>
 </template>
 
 <script>
 import DeptSelect from '../components/dept-select.vue'
 import Upload from '../components/upload.vue'
+import { getOcGroup, delOcGroup } from '../../api/index'
+import SetOcGroup from './set-oc.group.vue'
 
 export default {
   name: 'OcGroup',
-  components: { DeptSelect, Upload },
+  components: { DeptSelect, Upload, SetOcGroup },
   data() {
     return {
       tableData: [],
@@ -54,27 +63,36 @@ export default {
         dept: ''
       },
       name: '',
-      dept: ''
+      dept: '',
+      showModal: false,
+      currId: ''
     }
   },
   mounted() {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await getOcGroup()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
-    del(item) {
+    async del(item) {
+      const res = await delOcGroup()
+      console.log(res, '-----res-----')
       console.log(item, '-----item-----')
     },
     edit(item) {
       console.log(item, '-----item-----')
+      this.currId = item.id || ''
+      this.showModal = true
     },
     search() {
 
     },
     create() {
-
+      this.currId = ''
+      this.showModal = true
     },
     upload() {
 

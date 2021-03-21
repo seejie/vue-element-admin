@@ -15,6 +15,7 @@
     </el-table>
 
     <yearly-config-modal
+      :id="currId"
       :visible.sync="showModal"
     />
   </div>
@@ -22,6 +23,7 @@
 
 <script>
 import yearlyConfigModal from './yearly-config-modal.vue'
+import { getSchedule } from '../../api/index'
 
 export default {
   name: 'Schedule',
@@ -29,25 +31,29 @@ export default {
   data() {
     return {
       tableData: [],
-      showModal: false
+      showModal: false,
+      currId: ''
     }
   },
   mounted() {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await getSchedule()
+      console.log(res, '-----res-----')
       this.tableData = [{
         date: 'test'
       }]
     },
     create() {
-      console.log(1, '-----1-----')
       this.showModal = true
+      this.currId = ''
     },
     edit(item) {
       console.log(item, '-----item-----')
       this.showModal = true
+      this.currId = item.id || ''
     }
   }
 }
