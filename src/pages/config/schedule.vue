@@ -2,11 +2,18 @@
   <div class="wrapper">
     <el-button type="primary" @click="create">新增年度配置</el-button>
     <el-table :data="tableData" border>
-      <el-table-column fixed prop="date" label="年度描述" header-align="center" />
-      <el-table-column fixed prop="date" label="年度开始时间" header-align="center" />
-      <el-table-column fixed prop="date" label="年度结束时间" header-align="center" />
-      <el-table-column fixed prop="date" label="状态" header-align="center" />
-      <el-table-column fixed prop="date" label="创建时间" header-align="center" />
+      <el-table-column fixed prop="desc" label="年度描述" header-align="center" align="center" />
+      <el-table-column fixed prop="sDate" label="年度开始时间" header-align="center" align="center" />
+      <el-table-column fixed prop="eDate" label="年度结束时间" header-align="center" align="center" />
+      <el-table-column fixed prop="status" label="状态" header-align="center" align="center">
+        <template slot-scope="{row}">
+          <el-tag
+            :type="row.status === '启用' ? 'success' : 'danger'"
+            disable-transitions
+          >{{ row.status }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column fixed prop="createTime" label="创建时间" header-align="center" align="center" />
       <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="edit(row)">编辑</el-button>
@@ -30,7 +37,21 @@ export default {
   components: { yearlyConfigModal },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        id: 0,
+        desc: '2021-2022年度',
+        sDate: '2021-03-03',
+        eDate: '2022-07-01',
+        status: '启用',
+        createTime: '2021-3-7 15:00'
+      }, {
+        id: 1,
+        desc: '2020-2021年度',
+        sDate: '2020-03-01',
+        eDate: '2021-02-28',
+        status: '结束',
+        createTime: '2021-3-7 15:00'
+      }],
       showModal: false,
       currId: ''
     }
@@ -42,9 +63,6 @@ export default {
     async getList() {
       const res = await getSchedule()
       console.log(res, '-----res-----')
-      this.tableData = [{
-        date: 'test'
-      }]
     },
     create() {
       this.showModal = true
@@ -53,7 +71,7 @@ export default {
     edit(item) {
       console.log(item, '-----item-----')
       this.showModal = true
-      this.currId = item.id || ''
+      this.currId = item.id
     }
   }
 }

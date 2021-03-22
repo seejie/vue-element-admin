@@ -114,11 +114,13 @@ export default {
       const url = this.title === '月' ? 'monthlyAuditReject' : 'yearlyAuditReject'
       const res = await api[url]()
       console.log(res, '-----res-----')
+      this.dialogVisible = false
     },
     async confrim() {
       const url = this.title === '月' ? 'monthlyAuditPass' : 'yearlyAuditPass'
       const res = await api[url]()
       console.log(res, '-----res-----')
+      this.dialogVisible = false
     }
   }
 }

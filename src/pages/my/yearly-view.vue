@@ -64,6 +64,7 @@ import AuditStatusSelect from '../components/audit-status-select.vue'
 import ChannelSelect from '../components/channel-select.vue'
 import deptSelect from '../components/dept-select.vue'
 import ProgramSelect from '../components/program-select.vue'
+import { yearlyView } from '../../api/index'
 
 export default {
   name: 'YearlyView',
@@ -92,7 +93,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await yearlyView()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     check(item) {

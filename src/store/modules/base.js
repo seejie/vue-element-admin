@@ -7,7 +7,20 @@ const state = {
   programOpts: [],
   specsOpts: [],
   timeNodeOpts: [],
-  productsOpts: []
+  productsOpts: [{
+    id: '80025875',
+    name: '娇韵诗双萃赋活精华露',
+    note: 'sssss',
+    value: '80025875',
+    label: '娇韵诗双萃赋活精华露'
+  }, {
+    id: '80016257',
+    name: 'Extra-Firming MASK - 8ml tube',
+    note: 'aaa',
+    value: '80016257',
+    label: 'Extra-Firming MASK - 8ml tube'
+  }],
+  ocGroupOpts: []
 }
 
 const mutations = {
@@ -37,6 +50,9 @@ const mutations = {
   },
   setProductsOpts: (state, paylod) => {
     state.productsOpts = paylod
+  },
+  setOcGroupOpts: (state, paylod) => {
+    state.ocGroupOpts = paylod
   }
 }
 
@@ -67,6 +83,9 @@ const actions = {
   },
   getProductsOpts({ commit }) {
     commit('setProductsOpts', [])
+  },
+  getOcGroupOpts({ commit }) {
+    commit('setOcGroupOpts', [])
   }
 }
 

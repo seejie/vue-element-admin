@@ -52,7 +52,7 @@
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="check(row)">查看</el-button>
-          <el-button type="text" size="small" @click="edit(row)">查看</el-button>
+          <el-button type="text" size="small" @click="edit(row)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -64,6 +64,7 @@ import AuditStatusSelect from '../components/audit-status-select.vue'
 import ChannelSelect from '../components/channel-select.vue'
 import deptSelect from '../components/dept-select.vue'
 import ProgramSelect from '../components/program-select.vue'
+import { monthlyView } from '../../api/index'
 
 export default {
   name: 'MonthlyView',
@@ -92,7 +93,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
+    async getList() {
+      const res = await monthlyView()
+      console.log(res, '-----res-----')
       this.tableData = [{ date: 'test' }]
     },
     check(item) {

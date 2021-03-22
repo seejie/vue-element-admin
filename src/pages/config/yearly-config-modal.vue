@@ -33,20 +33,11 @@
       border
       style="width: 100%"
     >
-      <el-table-column prop="date" label="编号" />
+      <el-table-column prop="id" label="编号" />
       <el-table-column prop="name" label="名称" />
-      <el-table-column prop="address" label="备注">
-        <template slot-scope="{row}">
-          <el-input v-if="row.edit" v-model="row.note" placeholder="请输入" />
-          <template v-else>
-            {{ row.note }}
-          </template>
-        </template>
-      </el-table-column>
+      <el-table-column prop="note" label="备注" />
       <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
-        <template slot-scope="{row, $index}">
-          <el-button v-if="row.edit" type="text" size="small" @click="done(row)">完成</el-button>
-          <el-button v-else type="text" size="small" @click="edit(row)">编辑</el-button>
+        <template slot-scope="{$index}">
           <el-button type="text" size="small" @click="del($index)">移除</el-button>
         </template>
       </el-table-column>

@@ -191,3 +191,19 @@ export function yearlyAuditPass() {
     method: 'get'
   })
 }
+
+// 月度申请查看
+export function monthlyView() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 年度申请查看
+export function yearlyView() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
