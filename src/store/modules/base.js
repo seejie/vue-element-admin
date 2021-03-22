@@ -10,7 +10,16 @@ const state = {
     value: 'dotcom recruiting'
   }],
   channelOpts: [],
-  auditStatusOpts: [],
+  auditStatusOpts: [{
+    name: '通过',
+    value: '通过'
+  }, {
+    name: '拒绝',
+    value: '拒绝'
+  }, {
+    name: '未审核',
+    value: '未审核'
+  }],
   productLineOpts: [{
     name: '保湿',
     value: '保湿'

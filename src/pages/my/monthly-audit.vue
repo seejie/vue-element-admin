@@ -34,18 +34,18 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column prop="date" label="申请单号" header-align="center" />
-      <el-table-column prop="date" label="部门" header-align="center" />
-      <el-table-column prop="date" label="渠道" header-align="center" />
-      <el-table-column prop="date" label="Program" header-align="center" />
-      <el-table-column prop="date" label="申请人" header-align="center" />
+      <el-table-column prop="id" label="申请单号" header-align="center" />
+      <el-table-column prop="dept" label="部门" header-align="center" />
+      <el-table-column prop="channel" label="渠道" header-align="center" />
+      <el-table-column prop="program" label="Program" header-align="center" />
+      <el-table-column prop="user" label="申请人" header-align="center" />
       <el-table-column prop="date" label="申请日期" header-align="center" />
-      <el-table-column prop="date" label="申请月份" header-align="center" />
-      <el-table-column prop="date" label="审核状态" header-align="center" />
-      <el-table-column prop="date" label="审核备注" header-align="center" />
+      <el-table-column prop="month" label="申请月份" header-align="center" />
+      <el-table-column prop="status" label="审核状态" header-align="center" />
+      <el-table-column prop="note" label="审核备注" header-align="center" />
       <el-table-column prop="date" label="审核日期" header-align="center" />
       <el-table-column prop="date" label="审核人" header-align="center" />
-      <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
+      <el-table-column fixed="right" label="操作" width="60" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="check(row)">查看</el-button>
         </template>
@@ -75,7 +75,27 @@ export default {
   },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        id: '202103010001',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        month: '2021-06',
+        status: '通过',
+        note: ''
+      }, {
+        id: '202103010002',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        month: '2021-06',
+        status: '拒绝',
+        note: ''
+      }],
       form: {
         dept: '',
         order: '',
@@ -94,12 +114,10 @@ export default {
     async getList() {
       const res = await monthlyAudit()
       console.log(res, '-----res-----')
-      this.tableData = [{ date: 'test' }]
     },
     check(item) {
       console.log(item, '-----item-----')
-      // this.currId = item.id
-      this.currId = 1
+      this.currId = item.id
     },
     search() {
 
