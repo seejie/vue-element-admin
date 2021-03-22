@@ -43,11 +43,11 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column prop="date" label="品类" header-align="center" />
-      <el-table-column prop="date" label="产品线" header-align="center" />
-      <el-table-column prop="date" label="SKU" header-align="center" />
-      <el-table-column prop="date" label="SKU Desc" header-align="center" />
-      <el-table-column prop="date" label="FOC QTY" header-align="center" />
+      <el-table-column prop="type" label="品类" header-align="center" align="center" />
+      <el-table-column prop="line" label="产品线" header-align="center" align="center" />
+      <el-table-column prop="sku" label="SKU" header-align="center" align="center" />
+      <el-table-column prop="desc" label="SKU Desc" header-align="center" />
+      <el-table-column prop="qty" label="FOC QTY" header-align="center" align="center" />
     </el-table>
 
     <el-pagination
@@ -75,7 +75,13 @@ export default {
   },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        type: '面部',
+        line: '保湿',
+        sku: '80025875',
+        desc: '娇韵诗双萃赋活精华露',
+        qty: '43'
+      }],
       form: {
         prodType: '',
         prodLine: '',
@@ -97,7 +103,6 @@ export default {
     async getList() {
       const res = await queryActual()
       console.log(res, '-----res-----')
-      this.tableData = [{ date: 'test' }]
     },
     handleSizeChange() {
 

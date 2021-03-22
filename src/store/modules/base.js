@@ -11,10 +11,34 @@ const state = {
   }],
   channelOpts: [],
   auditStatusOpts: [],
-  productLineOpts: [],
-  productsTypeOpts: [],
+  productLineOpts: [{
+    name: '保湿',
+    value: '保湿'
+  }, {
+    name: '抗皱',
+    value: '抗皱'
+  }, {
+    name: '美白',
+    value: '美白'
+  }],
+  productsTypeOpts: [{
+    name: '面部',
+    value: '面部'
+  }, {
+    name: '身体',
+    value: '身体'
+  }, {
+    name: '彩妆',
+    value: '彩妆'
+  }],
   programOpts: [],
-  specsOpts: [],
+  specsOpts: [{
+    name: 'S',
+    value: 'S'
+  }, {
+    name: 'T',
+    value: 'T'
+  }],
   timeNodeOpts: [],
   productsOpts: [{
     id: '80025875',

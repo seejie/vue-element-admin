@@ -30,14 +30,14 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="组包编号" header-align="center" align="center" />
+      <el-table-column prop="id" label="组包编号" header-align="center" align="center" width="112px" />
       <el-table-column prop="name" label="组包名称" header-align="center" />
       <el-table-column prop="dept" label="所属部门" header-align="center" />
-      <el-table-column prop="price" label="组包价格" header-align="center" align="center" />
-      <el-table-column prop="count" label="包含单片数量" header-align="center" align="center" />
-      <el-table-column prop="createTime" label="创建日期" header-align="center" align="center" />
-      <el-table-column prop="creator" label="创建人" header-align="center" align="center" />
-      <el-table-column fixed="right" label="操作" width="60" header-align="center">
+      <el-table-column prop="price" label="组包价格" header-align="center" align="center" width="102px" />
+      <el-table-column prop="count" label="包含单片数量" header-align="center" align="center" width="126px" />
+      <el-table-column prop="createTime" label="创建日期" header-align="center" align="center" width="112px" />
+      <el-table-column prop="creator" label="创建人" header-align="center" align="center" width="112px" />
+      <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-popconfirm title="确定删除吗？" @onConfirm="del(row)">
             <el-button slot="reference" type="text" size="small">删除</el-button>
@@ -66,6 +66,15 @@ export default {
   data() {
     return {
       tableData: [{
+        img: '',
+        id: '80086952',
+        name: '娇韵诗明星防晒系列试用装',
+        dept: 'Tmall Recruiting',
+        price: '7.50',
+        count: '5',
+        createTime: '2021-1-18',
+        creator: '张*'
+      }, {
         img: '',
         id: '80086952',
         name: '娇韵诗明星防晒系列试用装',

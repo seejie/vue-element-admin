@@ -58,19 +58,19 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="编码" header-align="center" align="center" />
-      <el-table-column prop="name" label="名称" header-align="center" />
+      <el-table-column prop="id" label="编码" header-align="center" align="center" width="100px" />
+      <el-table-column prop="name" label="名称" header-align="center" width="200px" />
       <el-table-column prop="type" label="品类" header-align="center" align="center" />
       <el-table-column prop="specs" label="规格" header-align="center" align="center" />
       <el-table-column prop="line" label="产品线" header-align="center" align="center" />
-      <el-table-column prop="cost" label="单片成本价" header-align="center" align="center" />
-      <el-table-column prop="price" label="单片市场价" header-align="center" align="center" />
-      <el-table-column prop="date" label="正装售价" header-align="center" />
-      <el-table-column prop="date" label="正装毫升数" header-align="center" />
-      <el-table-column prop="date" label="小样毫升数" header-align="center" />
-      <el-table-column prop="effect" label="生效日期" header-align="center" />
-      <el-table-column prop="expiry" label="失效日期" header-align="center" />
-      <el-table-column prop="note" label="备注" header-align="center" />
+      <el-table-column prop="cost" label="单片成本价" header-align="center" align="center" width="100px" />
+      <el-table-column prop="price" label="单片市场价" header-align="center" align="center" width="100px" />
+      <el-table-column prop="date" label="正装售价" header-align="center" align="center" />
+      <el-table-column prop="date" label="正装毫升数" header-align="center" align="center" width="100px" />
+      <el-table-column prop="date" label="小样毫升数" header-align="center" align="center" width="100px" />
+      <el-table-column prop="effect" label="生效日期" header-align="center" align="center" width="100px" />
+      <el-table-column prop="expiry" label="失效日期" header-align="center" align="center" width="100px" />
+      <el-table-column prop="note" label="备注" header-align="center" width="120px" />
       <el-table-column prop="substitute" label="替换产品" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
@@ -118,7 +118,10 @@ export default {
         specs: 'T',
         line: '保湿',
         cost: '1.0',
-        price: '1.26'
+        price: '1.26',
+        effect: '2020-1-1',
+        expiry: '2021-5-31',
+        note: ''
       }],
       form: {
         name: '',
