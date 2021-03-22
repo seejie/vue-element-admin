@@ -2,10 +2,10 @@
   <div class="wrapper">
     <el-button type="primary" @click="create">新增年度配置</el-button>
     <el-table :data="tableData" border>
-      <el-table-column fixed prop="desc" label="年度描述" header-align="center" align="center" />
-      <el-table-column fixed prop="sDate" label="年度开始时间" header-align="center" align="center" />
-      <el-table-column fixed prop="eDate" label="年度结束时间" header-align="center" align="center" />
-      <el-table-column fixed prop="status" label="状态" header-align="center" align="center">
+      <el-table-column prop="desc" label="年度描述" header-align="center" align="center" />
+      <el-table-column prop="sDate" label="年度开始时间" header-align="center" align="center" />
+      <el-table-column prop="eDate" label="年度结束时间" header-align="center" align="center" />
+      <el-table-column prop="status" label="状态" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-tag
             :type="row.status === '启用' ? 'success' : 'danger'"
@@ -13,7 +13,7 @@
           >{{ row.status }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column fixed prop="createTime" label="创建时间" header-align="center" align="center" />
+      <el-table-column prop="createTime" label="创建时间" header-align="center" align="center" />
       <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="edit(row)">编辑</el-button>

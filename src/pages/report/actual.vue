@@ -43,11 +43,11 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column fixed prop="date" label="品类" header-align="center" />
-      <el-table-column fixed prop="date" label="产品线" header-align="center" />
-      <el-table-column fixed prop="date" label="SKU" header-align="center" />
-      <el-table-column fixed prop="date" label="SKU Desc" header-align="center" />
-      <el-table-column fixed prop="date" label="FOC QTY" header-align="center" />
+      <el-table-column prop="date" label="品类" header-align="center" />
+      <el-table-column prop="date" label="产品线" header-align="center" />
+      <el-table-column prop="date" label="SKU" header-align="center" />
+      <el-table-column prop="date" label="SKU Desc" header-align="center" />
+      <el-table-column prop="date" label="FOC QTY" header-align="center" />
     </el-table>
 
     <el-pagination

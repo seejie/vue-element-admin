@@ -24,39 +24,39 @@
       <el-tab-pane label="单片申请">
         <el-table :data="tableData" border>
           <el-table-column type="selection" width="55" />
-          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
-          <el-table-column fixed prop="date" label="编码" header-align="center" />
-          <el-table-column fixed prop="date" label="名称" header-align="center" />
-          <el-table-column fixed prop="date" label="品类" header-align="center" />
-          <el-table-column fixed prop="date" label="备注" header-align="center" />
-          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column prop="date" label="缩略图" header-align="center" />
+          <el-table-column prop="date" label="编码" header-align="center" />
+          <el-table-column prop="date" label="名称" header-align="center" />
+          <el-table-column prop="date" label="品类" header-align="center" />
+          <el-table-column prop="date" label="备注" header-align="center" />
+          <el-table-column prop="date" label="单片成本价" header-align="center" />
+          <el-table-column prop="date" label="单片市场价" header-align="center" />
         </el-table>
       </el-tab-pane>
 
       <el-tab-pane label="临时总包申请">
         <el-table :data="tableData" border>
           <el-table-column type="selection" width="55" />
-          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
-          <el-table-column fixed prop="date" label="编码" header-align="center" />
-          <el-table-column fixed prop="date" label="名称" header-align="center" />
-          <el-table-column fixed prop="date" label="品类" header-align="center" />
-          <el-table-column fixed prop="date" label="备注" header-align="center" />
-          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column prop="date" label="缩略图" header-align="center" />
+          <el-table-column prop="date" label="编码" header-align="center" />
+          <el-table-column prop="date" label="名称" header-align="center" />
+          <el-table-column prop="date" label="品类" header-align="center" />
+          <el-table-column prop="date" label="备注" header-align="center" />
+          <el-table-column prop="date" label="单片成本价" header-align="center" />
+          <el-table-column prop="date" label="单片市场价" header-align="center" />
         </el-table>
       </el-tab-pane>
 
       <el-tab-pane label="申请汇总(提交)">
         <el-table :data="tableData" border>
           <el-table-column type="selection" width="55" />
-          <el-table-column fixed prop="date" label="缩略图" header-align="center" />
-          <el-table-column fixed prop="date" label="编码" header-align="center" />
-          <el-table-column fixed prop="date" label="名称" header-align="center" />
-          <el-table-column fixed prop="date" label="品类" header-align="center" />
-          <el-table-column fixed prop="date" label="备注" header-align="center" />
-          <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-          <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
+          <el-table-column prop="date" label="缩略图" header-align="center" />
+          <el-table-column prop="date" label="编码" header-align="center" />
+          <el-table-column prop="date" label="名称" header-align="center" />
+          <el-table-column prop="date" label="品类" header-align="center" />
+          <el-table-column prop="date" label="备注" header-align="center" />
+          <el-table-column prop="date" label="单片成本价" header-align="center" />
+          <el-table-column prop="date" label="单片市场价" header-align="center" />
         </el-table>
       </el-tab-pane>
 

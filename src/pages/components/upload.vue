@@ -6,6 +6,7 @@
         drag
         action=""
         multiple
+        :show-file-list="false"
       >
         <i class="el-icon-upload" />
         <div>将文件拖到这里，点击上传</div>

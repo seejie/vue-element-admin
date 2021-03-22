@@ -14,7 +14,7 @@
       </div>
 
       <div class="drawer-item">
-        <span>Fixed Header</span>
+        <span>Header</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 

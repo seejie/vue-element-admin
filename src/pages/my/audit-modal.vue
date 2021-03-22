@@ -18,29 +18,29 @@
     </el-form>
 
     <el-table v-if="title === '月'" :data="monthlyTable" border>
-      <el-table-column fixed prop="date" label="编码" header-align="center" />
-      <el-table-column fixed prop="date" label="名称" header-align="center" />
-      <el-table-column fixed prop="date" label="品类" header-align="center" />
-      <el-table-column fixed prop="date" label="类型" header-align="center" />
-      <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-      <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
-      <el-table-column fixed prop="date" label="是否计划外" header-align="center" />
-      <el-table-column fixed prop="date" label="年度计划数量" header-align="center" />
-      <el-table-column fixed prop="date" label="可申请数量" header-align="center" />
-      <el-table-column fixed prop="date" label="本次申请数量" header-align="center" />
-      <el-table-column fixed prop="date" label="申请备注" header-align="center" />
-      <el-table-column fixed prop="date" label="审核意见" header-align="center" />
+      <el-table-column prop="date" label="编码" header-align="center" />
+      <el-table-column prop="date" label="名称" header-align="center" />
+      <el-table-column prop="date" label="品类" header-align="center" />
+      <el-table-column prop="date" label="类型" header-align="center" />
+      <el-table-column prop="date" label="单片成本价" header-align="center" />
+      <el-table-column prop="date" label="单片市场价" header-align="center" />
+      <el-table-column prop="date" label="是否计划外" header-align="center" />
+      <el-table-column prop="date" label="年度计划数量" header-align="center" />
+      <el-table-column prop="date" label="可申请数量" header-align="center" />
+      <el-table-column prop="date" label="本次申请数量" header-align="center" />
+      <el-table-column prop="date" label="申请备注" header-align="center" />
+      <el-table-column prop="date" label="审核意见" header-align="center" />
     </el-table>
 
     <el-table v-else :data="yearlyTable" border>
-      <el-table-column fixed prop="date" label="编码" header-align="center" />
-      <el-table-column fixed prop="date" label="名称" header-align="center" />
-      <el-table-column fixed prop="date" label="品类" header-align="center" />
-      <el-table-column fixed prop="date" label="备注" header-align="center" />
-      <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-      <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
-      <el-table-column fixed prop="date" label="是否计划外" header-align="center" />
-      <el-table-column fixed prop="date" label="申请备注" header-align="center" />
+      <el-table-column prop="date" label="编码" header-align="center" />
+      <el-table-column prop="date" label="名称" header-align="center" />
+      <el-table-column prop="date" label="品类" header-align="center" />
+      <el-table-column prop="date" label="备注" header-align="center" />
+      <el-table-column prop="date" label="单片成本价" header-align="center" />
+      <el-table-column prop="date" label="单片市场价" header-align="center" />
+      <el-table-column prop="date" label="是否计划外" header-align="center" />
+      <el-table-column prop="date" label="申请备注" header-align="center" />
     </el-table>
 
     <div class="audit">
@@ -50,11 +50,11 @@
 
     <div class="title">审核历史记录</div>
     <el-table :data="historyData" border>
-      <el-table-column fixed prop="date" label="时间" header-align="center" />
-      <el-table-column fixed prop="date" label="提交/审核人" header-align="center" />
-      <el-table-column fixed prop="date" label="动作" header-align="center" />
-      <el-table-column fixed prop="date" label="下一审核人" header-align="center" />
-      <el-table-column fixed prop="date" label="备注" header-align="center" />
+      <el-table-column prop="date" label="时间" header-align="center" />
+      <el-table-column prop="date" label="提交/审核人" header-align="center" />
+      <el-table-column prop="date" label="动作" header-align="center" />
+      <el-table-column prop="date" label="下一审核人" header-align="center" />
+      <el-table-column prop="date" label="备注" header-align="center" />
     </el-table>
 
     <template #footer>

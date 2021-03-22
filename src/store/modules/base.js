@@ -1,5 +1,14 @@
 const state = {
-  deptOpts: [],
+  deptOpts: [{
+    name: 'DS 20ml GWP',
+    value: 'DS 20ml GWP'
+  }, {
+    name: 'Store VIP',
+    value: 'Store VIP'
+  }, {
+    name: 'dotcom recruiting',
+    value: 'dotcom recruiting'
+  }],
   channelOpts: [],
   auditStatusOpts: [],
   productLineOpts: [],

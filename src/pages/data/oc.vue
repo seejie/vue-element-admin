@@ -49,21 +49,29 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column fixed prop="date" label="缩略图" header-align="center" />
-      <el-table-column fixed prop="date" label="编码" header-align="center" />
-      <el-table-column fixed prop="date" label="名称" header-align="center" />
-      <el-table-column fixed prop="date" label="品类" header-align="center" />
-      <el-table-column fixed prop="date" label="规格" header-align="center" />
-      <el-table-column fixed prop="date" label="产品线" header-align="center" />
-      <el-table-column fixed prop="date" label="单片成本价" header-align="center" />
-      <el-table-column fixed prop="date" label="单片市场价" header-align="center" />
-      <el-table-column fixed prop="date" label="正装售价" header-align="center" />
-      <el-table-column fixed prop="date" label="正装毫升数" header-align="center" />
-      <el-table-column fixed prop="date" label="小样毫升数" header-align="center" />
-      <el-table-column fixed prop="date" label="生效日期" header-align="center" />
-      <el-table-column fixed prop="date" label="失效日期" header-align="center" />
-      <el-table-column fixed prop="date" label="备注" header-align="center" />
-      <el-table-column fixed prop="date" label="替换产品" header-align="center" />
+      <el-table-column prop="date" label="缩略图" width="130px" header-align="center" align="center">
+        <template slot-scope="{row}">
+          <el-image
+            style="width: 100px; height: 100px"
+            :src="row.img"
+            :preview-src-list="[row.img]"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="id" label="编码" header-align="center" align="center" />
+      <el-table-column prop="name" label="名称" header-align="center" />
+      <el-table-column prop="type" label="品类" header-align="center" align="center" />
+      <el-table-column prop="specs" label="规格" header-align="center" align="center" />
+      <el-table-column prop="line" label="产品线" header-align="center" align="center" />
+      <el-table-column prop="cost" label="单片成本价" header-align="center" align="center" />
+      <el-table-column prop="price" label="单片市场价" header-align="center" align="center" />
+      <el-table-column prop="date" label="正装售价" header-align="center" />
+      <el-table-column prop="date" label="正装毫升数" header-align="center" />
+      <el-table-column prop="date" label="小样毫升数" header-align="center" />
+      <el-table-column prop="effect" label="生效日期" header-align="center" />
+      <el-table-column prop="expiry" label="失效日期" header-align="center" />
+      <el-table-column prop="note" label="备注" header-align="center" />
+      <el-table-column prop="substitute" label="替换产品" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="edit(row)">编辑</el-button>
@@ -102,7 +110,16 @@ export default {
   },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        img: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        type: '面部',
+        specs: 'T',
+        line: '保湿',
+        cost: '1.0',
+        price: '1.26'
+      }],
       form: {
         name: '',
         price: '',
@@ -125,7 +142,6 @@ export default {
     async getList() {
       const res = await getOc()
       console.log(res, '-----res-----')
-      this.tableData = [{ date: 'test' }]
     },
     edit(item) {
       console.log(item, '-----item-----')

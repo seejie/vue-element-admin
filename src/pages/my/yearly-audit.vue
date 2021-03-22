@@ -34,17 +34,17 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column fixed prop="date" label="申请单号" header-align="center" />
-      <el-table-column fixed prop="date" label="部门" header-align="center" />
-      <el-table-column fixed prop="date" label="渠道" header-align="center" />
-      <el-table-column fixed prop="date" label="Program" header-align="center" />
-      <el-table-column fixed prop="date" label="申请人" header-align="center" />
-      <el-table-column fixed prop="date" label="申请日期" header-align="center" />
-      <el-table-column fixed prop="date" label="申请年度" header-align="center" />
-      <el-table-column fixed prop="date" label="审核状态" header-align="center" />
-      <el-table-column fixed prop="date" label="审核备注" header-align="center" />
-      <el-table-column fixed prop="date" label="审核日期" header-align="center" />
-      <el-table-column fixed prop="date" label="审核人" header-align="center" />
+      <el-table-column prop="date" label="申请单号" header-align="center" />
+      <el-table-column prop="date" label="部门" header-align="center" />
+      <el-table-column prop="date" label="渠道" header-align="center" />
+      <el-table-column prop="date" label="Program" header-align="center" />
+      <el-table-column prop="date" label="申请人" header-align="center" />
+      <el-table-column prop="date" label="申请日期" header-align="center" />
+      <el-table-column prop="date" label="申请年度" header-align="center" />
+      <el-table-column prop="date" label="审核状态" header-align="center" />
+      <el-table-column prop="date" label="审核备注" header-align="center" />
+      <el-table-column prop="date" label="审核日期" header-align="center" />
+      <el-table-column prop="date" label="审核人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="check(row)">查看</el-button>
