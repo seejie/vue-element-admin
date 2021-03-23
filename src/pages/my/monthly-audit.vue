@@ -39,11 +39,11 @@
       <el-table-column prop="channel" label="渠道" header-align="center" />
       <el-table-column prop="program" label="Program" header-align="center" />
       <el-table-column prop="user" label="申请人" header-align="center" />
-      <el-table-column prop="date" label="申请日期" header-align="center" />
-      <el-table-column prop="month" label="申请月份" header-align="center" />
-      <el-table-column prop="status" label="审核状态" header-align="center" />
+      <el-table-column prop="date" label="申请日期" header-align="center" align="center" width="110px" />
+      <el-table-column prop="month" label="申请月份" header-align="center" align="center" width="110px" />
+      <el-table-column prop="status" label="审核状态" header-align="center" align="center" width="110px" />
       <el-table-column prop="note" label="审核备注" header-align="center" />
-      <el-table-column prop="date" label="审核日期" header-align="center" />
+      <el-table-column prop="date" label="审核日期" header-align="center" align="center" width="110px" />
       <el-table-column prop="date" label="审核人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="60" header-align="center" align="center">
         <template slot-scope="{row}">
