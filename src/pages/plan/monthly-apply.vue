@@ -39,17 +39,25 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column type="selection" width="55" />
-      <el-table-column prop="date" label="缩略图" header-align="center" />
-      <el-table-column prop="date" label="编码" header-align="center" />
-      <el-table-column prop="date" label="名称" header-align="center" />
-      <el-table-column prop="date" label="品类" header-align="center" />
-      <el-table-column prop="date" label="规格" header-align="center" />
-      <el-table-column prop="date" label="单片成本价" header-align="center" />
-      <el-table-column prop="date" label="单片市场价" header-align="center" />
+      <el-table-column type="selection" width="55px" align="center" />
+      <el-table-column prop="img" label="缩略图" header-align="center" align="center" width="130px">
+        <template slot-scope="{row}">
+          <el-image
+            style="width: 100px; height: 100px"
+            :src="row.img"
+            :preview-src-list="[row.img]"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="id" label="编码" header-align="center" align="center" />
+      <el-table-column prop="name" label="名称" header-align="center" />
+      <el-table-column prop="type" label="品类" header-align="center" align="center" />
+      <el-table-column prop="specs" label="规格" header-align="center" align="center" />
+      <el-table-column prop="cost" label="单片成本价" header-align="center" align="center" />
+      <el-table-column prop="price" label="单片市场价" header-align="center" align="center" />
       <el-table-column prop="date" label="是否计划外" header-align="center" />
-      <el-table-column prop="date" label="本次申请数量" header-align="center" />
-      <el-table-column prop="date" label="申请备注" header-align="center" />
+      <el-table-column prop="qty" label="本次申请数量" header-align="center" align="center" />
+      <el-table-column prop="note" label="申请备注" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="edit(row)">查看</el-button>
@@ -64,6 +72,7 @@ import deptSelect from '../components/dept-select.vue'
 import ChannelSelect from '../components/channel-select.vue'
 import ProgramSelect from '../components/program-select.vue'
 import ProductsSelect from '../components/products-select.vue'
+import { monthlyApply } from '../../api/index'
 
 export default {
   name: 'MonthlyApply',
@@ -75,7 +84,17 @@ export default {
   },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        type: 'AA-DS',
+        specs: 'T',
+        cost: '10',
+        price: '16',
+        qty: '2',
+        note: ''
+      }],
       form: {
         order: '',
         user: '',
@@ -89,8 +108,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
-      this.tableData = [{ date: 'test' }]
+    async getList() {
+      const res = await monthlyApply()
+      console.log(res, '-----res-----')
     },
     edit(item) {
       console.log(item, '-----item-----')
@@ -99,6 +119,9 @@ export default {
 
     },
     apply() {
+
+    },
+    submit() {
 
     }
   }

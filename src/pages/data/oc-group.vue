@@ -127,17 +127,5 @@ export default {
 </script>
 
 <style lang="scss">
-.upload-box{
-  .el-upload-dragger{
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .el-icon-upload{
-      font-size: 18px;
-      line-height: 1;
-      margin: 0 .5rem;
-    }
-  }
-}
+
 </style>

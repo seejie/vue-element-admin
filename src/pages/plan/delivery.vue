@@ -31,29 +31,43 @@
     <upload />
 
     <el-table :data="tableData" border>
-      <el-table-column prop="date" label="Order" header-align="center" />
-      <el-table-column prop="date" label="Customer Code" header-align="center" />
-      <el-table-column prop="date" label="Store" header-align="center" />
-      <el-table-column prop="date" label="Date" header-align="center" />
-      <el-table-column prop="date" label="Brand" header-align="center" />
-      <el-table-column prop="date" label="Family" header-align="center" />
-      <el-table-column prop="date" label="Type-1" header-align="center" />
-      <el-table-column prop="date" label="SKU" header-align="center" />
-      <el-table-column prop="date" label="SKU Desc" header-align="center" />
-      <el-table-column prop="date" label="FOC QTY" header-align="center" />
-      <el-table-column prop="date" label="ORDER REFERENCE" header-align="center" />
+      <el-table-column prop="order" label="Order" header-align="center" align="center" />
+      <el-table-column prop="code" label="Customer Code" header-align="center" align="center" />
+      <el-table-column prop="store" label="Store" header-align="center" />
+      <el-table-column prop="date" label="Date" header-align="center" align="center" />
+      <el-table-column prop="brand" label="Brand" header-align="center" align="center" />
+      <el-table-column prop="family" label="Family" header-align="center" align="center" />
+      <el-table-column prop="type" label="Type-1" header-align="center" align="center" />
+      <el-table-column prop="sku" label="SKU" header-align="center" align="center" />
+      <el-table-column prop="desc" label="SKU Desc" header-align="center" />
+      <el-table-column prop="qty" label="FOC QTY" header-align="center" align="center" />
+      <el-table-column prop="ref" label="ORDER REFERENCE" header-align="center" />
     </el-table>
   </div>
 </template>
 
 <script>
 import upload from '../components/upload.vue'
+import { actualDelivery } from '../../api/index'
+
 export default {
   name: 'Delivery',
   components: { upload },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        order: '257230',
+        code: '80023007',
+        store: 'Store Name 1',
+        date: '2020/9/17',
+        brand: 'CL',
+        family: 'S',
+        type: 'OC',
+        sku: '80025875',
+        desc: '娇韵诗双萃赋活精华露',
+        qty: '30',
+        ref: 'BOFG201101080'
+      }],
       form: {
         order: '',
         user: '',
@@ -67,8 +81,9 @@ export default {
     this.getList()
   },
   methods: {
-    getList() {
-      this.tableData = [{ date: 'test' }]
+    async getList() {
+      const res = await actualDelivery()
+      console.log(res, '-----res-----')
     },
     search() {
 
@@ -94,17 +109,5 @@ export default {
 </style>
 
 <style lang="scss">
-.upload-box{
-  .el-upload-dragger{
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .el-icon-upload{
-      font-size: 18px;
-      line-height: 1;
-      margin: 0 .5rem;
-    }
-  }
-}
+
 </style>

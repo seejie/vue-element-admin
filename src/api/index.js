@@ -207,3 +207,19 @@ export function yearlyView() {
     method: 'get'
   })
 }
+
+// 实际发货
+export function actualDelivery() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}
+
+// 月度计划申请
+export function monthlyApply() {
+  return request({
+    url: '/vue-element-admin/roles',
+    method: 'get'
+  })
+}

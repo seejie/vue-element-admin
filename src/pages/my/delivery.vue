@@ -44,20 +44,31 @@
 
       <el-tab-pane label="套包申请" name="ocGroup">
         <el-form inline>
-          <el-form-item label="临时组包筛选">
+          <el-form-item label="组包筛选">
             <products-select :data.sync="products" />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="edit">编辑</el-button>
-            <el-button type="primary" @click="create">新增临时组包</el-button>
+            <el-button type="primary" @click="add">添加到列表</el-button>
           </el-form-item>
         </el-form>
 
         <el-table :data="ocGroupData" border>
-          <el-table-column prop="date" label="临时组包编码" header-align="center" />
-          <el-table-column prop="date" label="临时组包描述" header-align="center">
+          <el-table-column prop="img" label="缩略图" header-align="center" align="center">
             <template slot-scope="{row}">
-              <span style="margin-left: 10px">{{ row.date }}</span>
+              <el-image
+                style="width: 100px; height: 100px"
+                :src="row.img"
+                :preview-src-list="[row.img]"
+              />
+            </template>
+          </el-table-column>
+          <el-table-column prop="id" label="编码" header-align="center" align="center" />
+          <el-table-column prop="name" label="名称" header-align="center" />
+          <el-table-column prop="price" label="价格" header-align="center" align="center" />
+          <el-table-column prop="count" label="本次申请数量" header-align="center" align="center" />
+          <el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
+            <template slot-scope="{$index}">
+              <el-button type="text" size="small" @click="del($index)">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -93,6 +104,7 @@
 <script>
 import productsSelect from '../components/products-select.vue'
 import Upload from '../components/upload.vue'
+
 export default {
   name: 'Delivery',
   components: { productsSelect, Upload },
@@ -107,7 +119,7 @@ export default {
       program: '',
       products: '',
       activeTab: 'apply',
-      // activeTab: 'collect',
+      // activeTab: 'ocGroup',
       applyData: [{
         url: '',
         id: '80025875',
@@ -152,8 +164,7 @@ export default {
         typs: 'AA-DS',
         price: 1.6,
         cost: 2
-      }],
-      showModal: false
+      }]
     }
   },
   mounted() {
@@ -163,14 +174,14 @@ export default {
     getList() {
       this.tableData = [{ date: 'test' }]
     },
-    edit() {
-      this.showModal = true
-    },
-    create() {
-      this.showModal = true
+    add() {
+      this.ocGroupData.push(this.products)
     },
     submit() {
 
+    },
+    del(idx) {
+      this.ocGroupData.splice(idx, 1)
     }
   }
 }
