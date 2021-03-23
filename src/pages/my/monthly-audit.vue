@@ -41,10 +41,17 @@
       <el-table-column prop="user" label="申请人" header-align="center" />
       <el-table-column prop="date" label="申请日期" header-align="center" align="center" width="110px" />
       <el-table-column prop="month" label="申请月份" header-align="center" align="center" width="110px" />
-      <el-table-column prop="status" label="审核状态" header-align="center" align="center" width="110px" />
+      <el-table-column prop="status" label="审核状态" header-align="center" align="center" width="110px">
+        <template slot-scope="{row}">
+          <el-tag
+            :type="row.status === '通过' ? 'success' : row.status === '拒绝' ? 'danger' : ''"
+            disable-transitions
+          >{{ row.status }}</el-tag>
+        </template>
+      </el-table-column>
       <el-table-column prop="note" label="审核备注" header-align="center" />
       <el-table-column prop="date" label="审核日期" header-align="center" align="center" width="110px" />
-      <el-table-column prop="date" label="审核人" header-align="center" />
+      <el-table-column prop="auditor" label="审核人" header-align="center" />
       <el-table-column fixed="right" label="操作" width="60" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="check(row)">查看</el-button>
@@ -84,7 +91,8 @@ export default {
         date: '2021-03-01',
         month: '2021-06',
         status: '通过',
-        note: ''
+        note: '',
+        auditor: '张*'
       }, {
         id: '202103010002',
         dept: '部门',
@@ -94,7 +102,19 @@ export default {
         date: '2021-03-01',
         month: '2021-06',
         status: '拒绝',
-        note: ''
+        note: '',
+        auditor: '张*'
+      }, {
+        id: '202103010003',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        month: '2021-06',
+        status: '未审核',
+        note: '',
+        auditor: '张*'
       }],
       form: {
         dept: '',
