@@ -22,13 +22,21 @@
         </el-form>
 
         <el-table :data="applyData" border>
-          <el-table-column prop="date" label="缩略图" header-align="center" />
-          <el-table-column prop="date" label="编码" header-align="center" />
-          <el-table-column prop="date" label="名称" header-align="center" />
-          <el-table-column prop="date" label="品类" header-align="center" />
-          <el-table-column prop="date" label="备注" header-align="center" />
-          <el-table-column prop="date" label="单片成本价" header-align="center" />
-          <el-table-column prop="date" label="单片市场价" header-align="center" />
+          <el-table-column prop="img" label="缩略图" header-align="center" align="center">
+            <template slot-scope="{row}">
+              <el-image
+                style="width: 100px; height: 100px"
+                :src="row.img"
+                :preview-src-list="[row.img]"
+              />
+            </template>
+          </el-table-column>
+          <el-table-column prop="id" label="编码" header-align="center" align="center" />
+          <el-table-column prop="name" label="名称" header-align="center" />
+          <el-table-column prop="type" label="品类" header-align="center" />
+          <el-table-column prop="note" label="备注" header-align="center" />
+          <el-table-column prop="price" label="单片成本价" header-align="center" align="center" />
+          <el-table-column prop="cost" label="单片市场价" header-align="center" align="center" />
           <el-table-column prop="date" label="本次申请 发货数量" header-align="center" />
           <el-table-column prop="date" label="本次申请发货 市场价" header-align="center" />
         </el-table>
@@ -49,7 +57,6 @@
           <el-table-column prop="date" label="临时组包编码" header-align="center" />
           <el-table-column prop="date" label="临时组包描述" header-align="center">
             <template slot-scope="{row}">
-              <i class="el-icon-time" />
               <span style="margin-left: 10px">{{ row.date }}</span>
             </template>
           </el-table-column>
@@ -62,13 +69,21 @@
           <el-button type="primary" @click="submit">提交FSCT年度申请</el-button>
         </div>
         <el-table :data="collectData" border>
-          <el-table-column prop="date" label="缩略图" header-align="center" />
-          <el-table-column prop="date" label="编码" header-align="center" />
-          <el-table-column prop="date" label="名称" header-align="center" />
-          <el-table-column prop="date" label="品类" header-align="center" />
-          <el-table-column prop="date" label="备注" header-align="center" />
-          <el-table-column prop="date" label="单片成本价" header-align="center" />
-          <el-table-column prop="date" label="单片市场价" header-align="center" />
+          <el-table-column prop="img" label="缩略图" header-align="center" align="center">
+            <template slot-scope="{row}">
+              <el-image
+                style="width: 100px; height: 100px"
+                :src="row.img"
+                :preview-src-list="[row.img]"
+              />
+            </template>
+          </el-table-column>
+          <el-table-column prop="id" label="编码" header-align="center" align="center" />
+          <el-table-column prop="name" label="名称" header-align="center" />
+          <el-table-column prop="type" label="品类" header-align="center" />
+          <el-table-column prop="note" label="备注" header-align="center" />
+          <el-table-column prop="cost" label="单片成本价" header-align="center" align="center" />
+          <el-table-column prop="price" label="单片市场价" header-align="center" align="center" />
         </el-table>
       </el-tab-pane>
     </el-tabs>
@@ -93,9 +108,51 @@ export default {
       products: '',
       activeTab: 'apply',
       // activeTab: 'collect',
-      applyData: [],
-      ocGroupData: [],
-      collectData: [],
+      applyData: [{
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }, {
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }],
+      ocGroupData: [{
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }, {
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }],
+      collectData: [{
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }, {
+        url: '',
+        id: '80025875',
+        name: '娇韵诗双萃赋活精华露',
+        typs: 'AA-DS',
+        price: 1.6,
+        cost: 2
+      }],
       showModal: false
     }
   },
