@@ -41,14 +41,21 @@
     </el-form>
 
     <el-table :data="tableData" border>
-      <el-table-column prop="date" label="申请单号" header-align="center" />
-      <el-table-column prop="date" label="使用渠道" header-align="center" />
-      <el-table-column prop="date" label="用途（Program）" header-align="center" />
-      <el-table-column prop="date" label="部门" header-align="center" />
-      <el-table-column prop="date" label="申请人" header-align="center" />
-      <el-table-column prop="date" label="提交时间" header-align="center" />
-      <el-table-column prop="date" label="状态" header-align="center" />
-      <el-table-column prop="date" label="审核备注" header-align="center" />
+      <el-table-column prop="id" label="申请单号" header-align="center" align="center" />
+      <el-table-column prop="channel" label="使用渠道" header-align="center" />
+      <el-table-column prop="program" label="用途（Program）" header-align="center" />
+      <el-table-column prop="dept" label="部门" header-align="center" />
+      <el-table-column prop="user" label="申请人" header-align="center" />
+      <el-table-column prop="date" label="提交时间" header-align="center" align="center" />
+      <el-table-column prop="status" label="状态" header-align="center" align="center" width="110px">
+        <template slot-scope="{row}">
+          <el-tag
+            :type="row.status === '通过' ? 'success' : row.status === '拒绝' ? 'danger' : ''"
+            disable-transitions
+          >{{ row.status }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="note" label="审核备注" header-align="center" />
       <el-table-column fixed="right" label="操作" width="160" header-align="center" align="center">
         <template slot-scope="{row}">
           <el-button type="text" size="small" @click="check(row)">查看</el-button>
@@ -76,7 +83,34 @@ export default {
   },
   data() {
     return {
-      tableData: [],
+      tableData: [{
+        id: '202103010001',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        year: '2021',
+        status: '通过'
+      }, {
+        id: '202103010002',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        year: '2021',
+        status: '拒绝'
+      }, {
+        id: '202103010003',
+        dept: '部门',
+        channel: '渠道',
+        program: '招新',
+        user: '张*',
+        date: '2021-03-01',
+        year: '2021',
+        status: '未审核'
+      }],
       form: {
         order: '',
         dept: '',
@@ -96,10 +130,12 @@ export default {
     async getList() {
       const res = await monthlyView()
       console.log(res, '-----res-----')
-      this.tableData = [{ date: 'test' }]
     },
     check(item) {
       console.log(item, '-----item-----')
+      this.$router.push({
+        path: '/my/monthly-audit'
+      })
     },
     edit(item) {
       console.log(item, '-----item-----')
