@@ -1,10 +1,19 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
+    <div class="y_1">
+      <img src="../../assets/f_1.png">
+    </div>
+    <div class="y_2">
+      <img src="../../assets/f_2.png">
+    </div>
+    <div class="logo">
+      <img src="../../assets/logo.png">
+    </div>
 
-      <div class="title-container">
-        <h3 class="title">Login Form</h3>
-      </div>
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form df fdc aic" autocomplete="on" label-position="left">
+
+      <img src="../../assets/title_h2.png" style="" class="m_t_30">
+      <img src="../../assets/title_h3.png">
 
       <el-form-item prop="username">
         <span class="svg-container">
@@ -45,41 +54,16 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-
-      <div style="position:relative">
-        <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
-        </div>
-        <div class="tips">
-          <span style="margin-right:18px;">Username : editor</span>
-          <span>Password : any</span>
-        </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          Or connect with
-        </el-button>
-      </div>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-top:10px;width:300px;" @click.native.prevent="handleLogin">登录</el-button>
     </el-form>
-
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
-      Can not be simulated on local, so please combine you own business simulation! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-import SocialSign from './components/SocialSignin'
 
 export default {
   name: 'Login',
-  components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
@@ -107,7 +91,6 @@ export default {
       passwordType: 'password',
       capsTooltip: false,
       loading: false,
-      showDialog: false,
       redirect: undefined,
       otherQuery: {}
     }
@@ -124,18 +107,12 @@ export default {
       immediate: true
     }
   },
-  created() {
-    // window.addEventListener('storage', this.afterQRScan)
-  },
   mounted() {
     if (this.loginForm.username === '') {
       this.$refs.username.focus()
     } else if (this.loginForm.password === '') {
       this.$refs.password.focus()
     }
-  },
-  destroyed() {
-    // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
     checkCapslock(e) {
@@ -200,7 +177,7 @@ $cursor: #fff;
 .login-container {
   .el-input {
     display: inline-block;
-    height: 47px;
+    height: 40px;
     width: 85%;
 
     input {
@@ -210,7 +187,7 @@ $cursor: #fff;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
-      height: 47px;
+      height: 40px;
       caret-color: $cursor;
 
       &:-webkit-autofill {
@@ -225,28 +202,32 @@ $cursor: #fff;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     color: #454545;
+    width: 300px;
+    margin: 10px 0 0 0;
   }
 }
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
 
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background-color: #fce4e0;;
   overflow: hidden;
 
   .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
+    width: 600px;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 50%;
+    margin-left: -300px;
+    top: 50%;
+    height: 320px;
+    margin-top: -150px;
+    box-shadow: 0px 0px 10px rgb(0 68 163 / 10%);
   }
 
   .tips {
@@ -302,5 +283,22 @@ $light_gray:#eee;
       display: none;
     }
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.y_1, .y_2 {width: 10%; position: absolute;  }
+.y_1 img , .y_2 img {width: 100%; height: auto;}
+.y_1 { right: 10%; top: 12%;}
+.y_2 { left: 10%; top: 60%;}
+.logo {position: absolute; right: 15%; top: 10%;}
+.m_t_30 { margin-top:30px;}
+.df { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; }
+.fdc { -webkit-box-direction: normal;-webkit-box-orient: vertical;-moz-flex-direction: column;-webkit-flex-direction: column;flex-direction: column;}
+.aic { -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;}
+</style>
+<style lang="scss">
+.login-form .el-form-item__content{
+  line-height: unset;
 }
 </style>
