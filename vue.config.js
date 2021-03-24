@@ -36,20 +36,21 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:${port}/mock`,
-        changeOrigin: true,
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
-        }
-      },
-      '/api': {
-        target: 'http://clarins_test.softorg.com:81/',
-        changeOrigin: true,
-        secure: false
-      }
-    },
+    // todo
+    // proxy: {
+    //   [process.env.VUE_APP_BASE_API]: {
+    //     target: `http://localhost:${port}/mock`,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       ['^' + process.env.VUE_APP_BASE_API]: ''
+    //     }
+    //   },
+    //   '/api': {
+    //     target: 'http://clarins_test.softorg.com:81/',
+    //     changeOrigin: true,
+    //     secure: false
+    //   }
+    // },
     after: require('./mock/mock-server.js')
   },
   configureWebpack: {

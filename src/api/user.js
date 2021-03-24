@@ -1,10 +1,12 @@
 import request from '@/utils/request'
 
 export function login(data) {
+  // todo
   return request({
-    // url: '/vue-element-admin/user/login',
-    url: 'user/Login' + data,
-    method: 'post'
+    url: '/vue-element-admin/user/login',
+    // url: 'user/Login' + data,
+    method: 'post',
+    data
   })
 }
 
