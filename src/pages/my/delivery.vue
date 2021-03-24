@@ -79,6 +79,7 @@
           <span>以下单片列表包括：单片申请和临时组包申请中所有的单片汇总数字</span>
           <el-button type="primary" @click="submit">提交FSCT年度申请</el-button>
         </div>
+
         <el-table :data="collectData" border>
           <el-table-column prop="img" label="缩略图" header-align="center" align="center">
             <template slot-scope="{row}">
